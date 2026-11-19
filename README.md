@@ -1,19 +1,19 @@
-# sheraf skills
+# sheraf design ops
 
-Claude Code skills for design-system work in Figma, packaged as the `sheraf` plugin.
+Claude Code skills for design-system work in Figma, packaged as the `sdops` plugin.
 
 | Skill | What it does |
 |---|---|
-| `/sheraf:ds-fixer` | Checks, fixes and reports a Figma screen against its design-system libraries: classifies each review note as safe, deviation, library bug or owner decision, fixes in the library when you can edit it, and writes the report. |
+| `/sdops:ds-fixer` | Checks, fixes and reports a Figma screen against its design-system libraries: classifies each review note as safe, deviation, library bug or owner decision, fixes in the library when you can edit it, and writes the report. |
 
 ## Install
 
 ```
-/plugin marketplace add sh3raf/design-ops-skills
-/plugin install sheraf@sheraf
+/plugin marketplace add sh3raf/sheraf-design-ops
+/plugin install sdops@sdops
 ```
 
-From a local clone: `/plugin marketplace add ./design-ops-skills` instead of the first line.
+From a local clone: `/plugin marketplace add ./sheraf-design-ops` instead of the first line.
 
 ## Needs
 
