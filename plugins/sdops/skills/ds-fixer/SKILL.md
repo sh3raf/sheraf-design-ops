@@ -1,6 +1,7 @@
 ---
 name: ds-fixer
-description: Checks, fixes and reports a Figma screen against its design-system libraries (a tokens library and a components library). Use when a designer brings client or design review notes on a Figma file, asks whether fixes are on-system or deviations, wants a screen realigned with its design system, or asks to fix something in the libraries themselves and roll it out.
+description: Turns review notes on a Figma screen into fixes that stay on the design system, and reports what is still off-system. Classifies each note as safe, deviation, library bug or owner decision, fixes in the tokens or components library when you can edit it, and writes the client report. Use when a designer says things like "fix these review notes in Figma", "is this a deviation from the design system", "the client flagged R-02 and R-05", "realign this screen with our library" or "add the missing variant and roll it out". For a broad audit of a whole design system with no review notes, use an audit skill instead.
+license: MIT
 ---
 
 # ds-fixer
@@ -14,9 +15,10 @@ tokens from the files, never assume them.
 Collect, and ask only for what is missing:
 - **Files:** the product file, the tokens library, the components library. Note which ones the
   designer can edit; that decides whether a fix can happen in the library.
-- **Notes:** each review note with the reviewer's own ID (G-02, X-05...). Give unnumbered notes one.
+- **Notes:** each review note with the reviewer's own ID (R-02, R-05...). Give unnumbered notes one.
 - **Tools:** the Figma Console bridge (`figma_execute`, local, can write any open file) and the
   official Figma MCP (`get_screenshot`, `search_design_system`, cloud). Check which are connected.
+  Without the bridge, stop after step 3: deliver the classified plan and the report, change nothing.
 
 ## 2. Inspect first (read-only)
 

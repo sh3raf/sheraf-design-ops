@@ -8,9 +8,16 @@
   },
   "keywords": [
     "design-system",
+    "design-ops",
     "figma",
-    "tokens",
+    "figma-mcp",
+    "figma-console",
+    "design-tokens",
     "components",
-    "review"
-  ]
+    "design-review",
+    "deviations"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/sh3raf/sheraf-design-ops",
+  "homepage": "https://github.com/sh3raf/sheraf-design-ops#readme"
 }
