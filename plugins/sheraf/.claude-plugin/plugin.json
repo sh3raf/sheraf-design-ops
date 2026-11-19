@@ -1,0 +1,10 @@
+{
+  "name": "sheraf",
+  "version": "0.1.0",
+  "description": "Design-system skills by sheraf. ds-fixer: check, fix and report a Figma screen against its design-system libraries.",
+  "author": {
+    "name": "sheraf",
+    "url": "https://github.com/sh3raf"
+  },
+  "keywords": ["design-system", "figma", "tokens", "components", "review"]
+}

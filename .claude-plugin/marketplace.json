@@ -1,0 +1,15 @@
+{
+  "name": "sheraf",
+  "description": "Design-system skills by sheraf for Figma designers.",
+  "owner": {
+    "name": "sheraf",
+    "url": "https://github.com/sh3raf"
+  },
+  "plugins": [
+    {
+      "name": "sheraf",
+      "source": "./plugins/sheraf",
+      "description": "Design-system skills: ds-fixer checks, fixes and reports a Figma screen against its design-system libraries."
+    }
+  ]
+}
