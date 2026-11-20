@@ -67,6 +67,20 @@ Figma's Plugin API changes, so re-check an entry that stops matching what you se
 - **New tokens copy their siblings' naming and scopes,** and go into every layer of the token stack at
   once (component layer and theme layer).
 
+## Libraries and imports
+- **A file with no libraries enabled can still import published components by key**
+  (`importComponentByKeyAsync`, `importComponentSetByKeyAsync`). Some keys still fail (unpublished
+  or restricted): treat each import as optional, report the misses, and never leave an empty section.
+- **Reference files can use deprecated components.** Check each component's name and description in
+  the library (`-DEPRECATED`, "Instead use ...") and build with the replacement.
+- **Library components ship with placeholder text** (`{title}`, `{{description}}`, "Label",
+  "Option1"). Replace every one before showing a result; when a text isn't tied to a component
+  property, load its font and set `characters` directly.
+- **A brand asset can render wrong even with a normal transform** (a mirrored logo in exports and
+  cloud screenshots). Check the render; if it's wrong, use another official variant and re-check.
+- **The default variant is rarely the screen's variant** (a header with a back arrow on a home
+  screen). Read the variant options and pick the one the reference uses.
+
 ## Bridge and tools
 - **`importComponentByKeyAsync` / `importVariableByKeyAsync` can hang** and keep running after the
   timeout, finishing later. Prefer variables already bound somewhere in the file

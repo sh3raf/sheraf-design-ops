@@ -7,7 +7,8 @@ Claude Code skills for designers working in Figma, packaged as the `sdops` plugi
 | Skill | What it does |
 |---|---|
 | `/sdops:ds-fixer` | Resolves a round of review notes on a Figma screen against your design-system libraries, fixes the libraries when they're wrong, and reports every deviation. |
-| `/sdops:ds-ux-patterns` | Interviews you about the product, detects the UX patterns in its screens, and keeps a living catalogue: updates entries, adds missing ones, suggests what the product lacks. |
+| `/sdops:ds-ux-patterns` | Interviews you about the product, detects page and flow patterns in its real screens, and keeps a living catalogue in Markdown or as Figma pages (neutral doc kit, pattern IDs, numbered template and real example). |
+| `/sdops:figma-safe-write` | The shared safety rules and Figma gotchas every sdops skill loads before writing to a file. |
 
 ## Who it's for
 
@@ -121,9 +122,6 @@ Not built yet; each will join `sdops` when it is.
 - **ds-screen-build:** "Build these screens from the reference using only our library." Spec from the
   reference, approved element mapping, build, measure (±2 px geometry, 100% text), overlay review.
   Never inspects network traffic on signed-in pages; redacts captures before sharing.
-- **figma-safe-write (shared):** the safety protocol and Figma gotchas every write skill loads before
-  its first write. Created when a second write skill lands; ds-fixer's safety step then becomes a load
-  line and its gotchas move there.
 
 ## Contributing
 

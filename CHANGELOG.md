@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0
+
+- `ds-ux-patterns` writes Figma pattern pages as well as Markdown: a neutral doc kit, a team-set ID
+  convention (default PROD-PLT-####), page and flow types, a numbered template and a real example per
+  pattern, and a deprecated-component check on the reference.
+- New shared skill `figma-safe-write`: the safety protocol and gotchas, loaded by every write skill.
+  `ds-fixer` now loads it; the gotchas moved there and gained a Libraries and imports section.
+
 ## 0.2.0
 
 - New skill `ds-ux-patterns`: interviews the designer, detects UX patterns from the product's screens

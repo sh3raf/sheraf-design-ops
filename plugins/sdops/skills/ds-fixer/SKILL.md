@@ -49,22 +49,11 @@ deviation. When a reference value differs from the library's built-in spacing, s
 library wins: log it as a deviation, not a library bug. Propose library changes as A/B/C options with
 a recommendation and the count each one touches.
 
-## 4. Safety protocol (every write)
+## 4. Safety
 
-- **Version first:** `figma.saveVersionHistoryAsync(title)` in each file before its first write.
-- **Name the file:** with several files connected, pass `fileKey` on every call and check
-  `figma.root.name` at the top of the script. Null-check every lookup before reading `.id`.
-- **Dry run, then one sample:** count what a change will touch, apply it to one node, screenshot,
-  then do the rest.
-- **Small batches:** split heavy writes. A dropped or timed-out call may still have applied: read the
-  state back before retrying.
-- **Inventories on disk:** save long lists as JSON in the working folder, not in chat.
-- **Screenshot after:** check the result visually, then delete any temporary frames.
-- **Never reset all overrides** on a live instance to clear one; it also wipes labels and swaps. Copy
-  the main component's value onto the property instead.
-- **Know the limits:** the official MCP has a daily call cap and the bridge runs one script at a
-  time. Use the bridge for bulk reads and never run scripts in parallel on it.
-- **Library writes need a yes** on the list of changes; publishing is always the designer's click.
+Before the first write, load `sdops:figma-safe-write` and follow it. In short: save a named version in
+every file first, name the target file on every call, try one sample before the rest, and never
+publish a library: publishing is always the designer's click.
 
 ## 5. Fix order when the library is editable
 
@@ -90,6 +79,6 @@ anything leaves the team.
 
 ## Look up
 
-- A render, binding, slot, import or screenshot behaves oddly → read `references/figma-gotchas.md`.
+- A render, binding, slot, import or screenshot behaves oddly → `sdops:figma-safe-write` and its gotchas.
 - Writing the client report or a publish message → read `references/report-template.md`.
 - Airtight (`dsair`) installed → scan before and after and put both scores in the report.

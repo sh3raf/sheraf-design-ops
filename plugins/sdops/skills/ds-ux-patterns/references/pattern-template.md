@@ -4,7 +4,9 @@
 
 ```markdown
 ---
+id: <PROD-PLT-####>
 name: <Pattern name>
+type: page | flow
 aliases: [<other names used in the team>]
 category: <Navigation | Input | Data display | Feedback | Onboarding | Search and filter | Commerce | Account | Content>
 status: active | proposed | deprecated
@@ -19,7 +21,7 @@ last_reviewed: <YYYY-MM-DD>
 ## When to use
 ## When not to use (and what to use instead)
 ## Anatomy
-Named parts, in reading order.
+Page: numbered regions, top to bottom. Flow: numbered steps, then branches (3a, 3b...), entry points and exit.
 ## States
 Default, empty, loading, error, success, disabled: only those that apply.
 ## Behaviour
@@ -40,7 +42,7 @@ Library components and tokens that make it, by their library names.
 ```markdown
 # UX patterns: <product>
 
-| Pattern | Category | Status | Platforms | Last reviewed |
-|---|---|---|---|---|
-| [<name>](<slug>.md) | ... | active | web, ios | YYYY-MM-DD |
+| ID | Pattern | Type | Status | Platforms | Last reviewed |
+|---|---|---|---|---|---|
+| <ID> | [<name>](<slug>.md) | page | active | web, ios | YYYY-MM-DD |
 ```
