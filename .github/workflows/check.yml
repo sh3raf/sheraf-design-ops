@@ -1,5 +1,6 @@
 name: check
-on: [push, pull_request]
+# Manual only: checks run locally in .githooks/pre-push. Switch back to [push, pull_request] when public.
+on: workflow_dispatch
 permissions:
   contents: read
 jobs:
