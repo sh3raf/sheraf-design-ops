@@ -30,6 +30,8 @@ Figma's Plugin API changes, so re-check an entry that stops matching what you se
   text survives as the property value.
 - **Changing a main component's constraints (for example to SCALE) reflows resized instances.** Scan
   for resized instances after the change.
+- **You can't add layers inside an instance** ("New parent is an instance"). Give the component a slot
+  for content that varies, or detach that one instance before drawing into it.
 - **Swapping a nested icon drops its colour override.** Recolour after the swap, at every level.
 - **Replacing a nested node in a main component loses per-instance swaps** made on it (a row that
   showed $ instead of the default sign reverts). Resize or recolour in place instead.

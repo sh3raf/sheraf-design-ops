@@ -26,7 +26,7 @@ theirs instead.
 | `Doc/RegionRow` | Badge + label, label wraps | `label` |
 | `Doc/PropertyRow` | Key (fixed 160 px) + value, hairline below; height hugs | `key`, `value` |
 | `Doc/Section` | Section title + body text, for Purpose, Usage, Behaviour, Content, Accessibility | `title`, `body` |
-| `Doc/DoDont` | Two cards side by side, each a wireframe slot, a green "Do" or red "Don't" label and a reason | `do`, `dont` |
+| `Doc/DoDont` | Two cards side by side, each a wireframe **slot** (so sketches can go in instances), a green "Do" or red "Don't" label and a reason | `do`, `dont` |
 | `Doc/StateChip` | Small chip naming one state | `state` |
 | `Doc/PatternLink` | ID + name of a related pattern | `id`, `name` |
 

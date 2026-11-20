@@ -25,8 +25,9 @@ skipped.
   then do the rest.
 - **Small batches.** A dropped or timed-out call may still have applied, and may still be running:
   read the state back before retrying.
-- **Resume, don't repeat.** When a script fails part-way, the steps before the failure applied.
-  Re-run only the remaining steps; creation steps are not idempotent.
+- **Resume, don't repeat.** On the bridge, a script that fails part-way keeps the steps before the
+  failure: re-run only the rest. The official MCP's `use_figma` rolls a failed script back entirely.
+  Either way, read the canvas before retrying.
 - **Inventories on disk:** save long lists as JSON in the working folder, not in chat.
 - **Never reset all overrides** on a live instance to clear one; it also wipes labels and swaps. Copy
   the main component's value onto the property instead.

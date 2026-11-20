@@ -64,6 +64,7 @@ real misuse.
 
 ## 6. Report
 
-Added, updated, deprecated and declined; deprecated components found in the reference; placeholders or
+Added, updated, deprecated and declined; deprecated components found in the reference; places where
+the live example contradicts the documented rule (a library or product gap to raise); placeholders or
 gaps left in examples; entries not reviewed for 6 months. Anonymise client names before anything leaves
 the team.
