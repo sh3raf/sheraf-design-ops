@@ -67,6 +67,10 @@ Figma's Plugin API changes, so re-check an entry that stops matching what you se
 - **New tokens copy their siblings' naming and scopes,** and go into every layer of the token stack at
   once (component layer and theme layer).
 
+## Layout
+- **`resize()` fixes both axes.** On an auto-layout component that should hug (a row whose text
+  wraps), set `counterAxisSizingMode = 'AUTO'` after the resize, or wrapped text gets clipped.
+
 ## Libraries and imports
 - **A file with no libraries enabled can still import published components by key**
   (`importComponentByKeyAsync`, `importComponentSetByKeyAsync`). Some keys still fail (unpublished

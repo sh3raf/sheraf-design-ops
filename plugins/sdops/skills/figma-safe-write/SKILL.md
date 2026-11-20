@@ -11,7 +11,9 @@ skipped.
 
 ## Before the first write
 - **Version first:** `figma.saveVersionHistoryAsync(title)` in each file before its first change;
-  name the version in the report so the designer can undo the round.
+  name the version in the report so the designer can undo the round. The official MCP's `use_figma`
+  can't save versions: use the bridge, or ask the designer to save one, unless the run only adds new
+  pages or frames.
 - **Name the file:** with several files connected, pass `fileKey` on every call and check
   `figma.root.name` at the top of the script. Null-check every lookup before reading `.id`.
 - **Inspect, read-only:** what exists, which libraries the file can use, which fonts the product uses.
