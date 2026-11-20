@@ -4,13 +4,18 @@
 
 Claude Code skills for designers working in Figma, packaged as the `sdops` plugin.
 
+| Skill | What it does |
+|---|---|
+| `/sdops:ds-fixer` | Resolves a round of review notes on a Figma screen against your design-system libraries, fixes the libraries when they're wrong, and reports every deviation. |
+| `/sdops:ds-ux-patterns` | Interviews you about the product, detects the UX patterns in its screens, and keeps a living catalogue: updates entries, adds missing ones, suggests what the product lacks. |
+
 ## Who it's for
 
 Designers and design-system teams who get review notes on a Figma screen ("the pills are the wrong
 colour", "make the container grey") and need to know, for each one: can the library already do this,
 is it an off-system override, or is the library itself wrong?
 
-## What `/sdops:ds-fixer` does
+## What `/sdops:ds-fixer` does in detail
 
 1. **Inspects first, read-only:** what the screen uses, what the libraries offer, what the original design did.
 2. **Classifies every note** and shows you the table before touching anything:
@@ -44,12 +49,31 @@ Open the Figma file, then:
 R-02 the container should be grey and the cards white, R-03 status pills should match their text colour.
 ```
 
+Or start a pattern catalogue:
+
+```
+/sdops:ds-ux-patterns Document the UX patterns of our booking app (iOS and web). Reference screens are on
+the "Flows" page of this Figma file.
+```
+
 ## Needs
 
-- **Figma Console MCP** with its Desktop Bridge plugin running in Figma, to read and write files.
-  Without it the skill stops after the classification and delivers the plan and the report, changing nothing.
-- **Official Figma MCP**, to search your libraries' tokens and components and to screenshot other files.
-- **Edit access to the libraries**, if you want library bugs and gaps fixed at the source instead of logged as deviations.
+Setup takes about 5 minutes: see [docs/setup.md](docs/setup.md).
+
+- **Official Figma MCP** (`use_figma`), to search your libraries, screenshot any file and write.
+- **Figma Console MCP** with its Desktop Bridge plugin, for fast local reads and writes in open files.
+- **Edit access to the libraries**, if you want library bugs and gaps fixed at the source instead of
+  logged as deviations.
+
+Without any write connector, `ds-fixer` stops after the classification and delivers the plan and the
+report, changing nothing. The official MCP has a daily call limit and the bridge runs one script at a
+time; the skills plan around both.
+
+## Privacy
+
+The official Figma MCP is a cloud service, so what it reads leaves your machine; the bridge works
+locally. Reports contain your client's work: the skills anonymise client names in anything meant to
+leave the team.
 
 ## What it never does
 
@@ -63,6 +87,27 @@ R-02 the container should be grey and the cards white, R-03 status pills should 
 Audit skills scan a whole design system for problems. `ds-fixer` starts from a reviewer's notes on one
 screen, decides which fixes are on-system, fixes the libraries when they're wrong, and leaves a record of
 every deviation. Use an audit tool to find problems; use `ds-fixer` to resolve a round of review notes.
+
+## Planned skills
+
+Not built yet; each will join `sdops` when it is.
+
+- **ds-hygiene:** "Run a naming, descriptions, text-style or unused-parts pass across this component
+  library." Fixes broken sets before renames, traces nested parts up to published components before
+  calling them unused, relinks detached copies instead of deprecating, and writes descriptions as
+  what it is / when to use / when not to use.
+- **ds-theme-match:** "Make this theme or mode match the reference colours across these screens."
+  Traces alias chains, fills missing component tokens and audits contrast, confirming text on images
+  in a screenshot.
+- **ds-branch-merge:** "Prepare, merge and check this Figma library branch." Accepts pending library
+  updates in the branch first (or the merge reverts them), writes the merge message, and diffs main
+  after the merge.
+- **ds-screen-build:** "Build these screens from the reference using only our library." Spec from the
+  reference, approved element mapping, build, measure (±2 px geometry, 100% text), overlay review.
+  Never inspects network traffic on signed-in pages; redacts captures before sharing.
+- **figma-safe-write (shared):** the safety protocol and Figma gotchas every write skill loads before
+  its first write. Created when a second write skill lands; ds-fixer's safety step then becomes a load
+  line and its gotchas move there.
 
 ## Contributing
 

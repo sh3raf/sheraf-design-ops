@@ -15,10 +15,15 @@ tokens from the files, never assume them.
 Collect, and ask only for what is missing:
 - **Files:** the product file, the tokens library, the components library. Note which ones the
   designer can edit; that decides whether a fix can happen in the library.
+- **Conventions:** read the team's conventions file and decisions log, if one exists, before inspecting.
+- **Branch:** confirm the file key (in a branch URL, the branch key is the file key); write to a branch,
+  not main. If the connector refuses a branch, check whether it was already merged into main.
 - **Notes:** each review note with the reviewer's own ID (R-02, R-05...). Give unnumbered notes one.
-- **Tools:** the Figma Console bridge (`figma_execute`, local, can write any open file) and the
-  official Figma MCP (`get_screenshot`, `search_design_system`, cloud). Check which are connected.
-  Without the bridge, stop after step 3: deliver the classified plan and the report, change nothing.
+- **Tools:** the Figma Console bridge (`figma_execute`, local, any open file) and the official Figma
+  MCP (`use_figma`, `get_screenshot`, `search_design_system`, cloud). Writes go through the bridge or
+  `use_figma`. Check setup first: which connectors answer, which open files the bridge sees, and whether the
+  designer can edit the libraries. With no write tool, stop after step 3 and
+  deliver the classified plan and the report, changing nothing.
 
 ## 2. Inspect first (read-only)
 
@@ -27,6 +32,8 @@ For each note, before proposing anything:
 - What the library offers: the component's variant options and its description; the tokens
   (`search_design_system` lists library variables with their descriptions).
 - What the original or source design did, when there is one: copy its values, don't invent them.
+- Before changing a main component, check its usage in library analytics (instances, teams, files).
+  High usage means add-only: a new variant, a boolean off by default, or a new token.
 
 ## 3. Classify every note
 
@@ -38,7 +45,9 @@ For each note, before proposing anything:
 | Owner decision | A judgement call (source of truth, a rule) | Recommend one answer, ask |
 
 Show the table to the designer before writing. Say plainly when something they assumed safe is a
-deviation.
+deviation. When a reference value differs from the library's built-in spacing, size or radius, the
+library wins: log it as a deviation, not a library bug. Propose library changes as A/B/C options with
+a recommendation and the count each one touches.
 
 ## 4. Safety protocol (every write)
 
@@ -47,9 +56,14 @@ deviation.
   `figma.root.name` at the top of the script. Null-check every lookup before reading `.id`.
 - **Dry run, then one sample:** count what a change will touch, apply it to one node, screenshot,
   then do the rest.
+- **Small batches:** split heavy writes. A dropped or timed-out call may still have applied: read the
+  state back before retrying.
+- **Inventories on disk:** save long lists as JSON in the working folder, not in chat.
 - **Screenshot after:** check the result visually, then delete any temporary frames.
-- **Never reset all overrides** on an instance to clear one; it also wipes labels and swaps. Copy
+- **Never reset all overrides** on a live instance to clear one; it also wipes labels and swaps. Copy
   the main component's value onto the property instead.
+- **Know the limits:** the official MCP has a daily call cap and the bridge runs one script at a
+  time. Use the bridge for bulk reads and never run scripts in parallel on it.
 - **Library writes need a yes** on the list of changes; publishing is always the designer's click.
 
 ## 5. Fix order when the library is editable
@@ -60,6 +74,8 @@ deviation.
 3. Draft the publish message; the designer publishes.
 4. The designer clicks **Update all** in the product file.
 5. Switch instances to the new option, copy the main's values over the old overrides, check again.
+6. Spot-check one real consumer file: some changes can't be simulated in the library (layers a
+   designer un-hid by hand). After a branch merge, re-check main for reverted work.
 
 Tokens before components: a component bound to a new token needs the tokens library published first.
 
@@ -67,7 +83,10 @@ Tokens before components: a component bound to a new token needs the tokens libr
 
 Write it with `references/report-template.md`: what was fixed, library updates, decisions, and
 deviations with D-ids. End every update to the designer with what is still pending and who it
-waits on.
+waits on. Name the saved version that undoes the round. Log the round in the project's worklog, and
+update the conventions file when a decision changes. Never claim a match without a measurement (a
+pixel or region compare, or a screenshot); state your confidence. Anonymise client names before
+anything leaves the team.
 
 ## Look up
 

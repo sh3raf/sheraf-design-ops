@@ -1,21 +1,23 @@
 {
   "name": "sdops",
-  "version": "0.1.0",
-  "description": "Design-ops skills by sheraf. ds-fixer: check, fix and report a Figma screen against its design-system libraries.",
+  "version": "0.2.0",
+  "description": "Design-ops skills by sheraf: ds-fixer resolves review notes against the design-system libraries; ds-ux-patterns keeps a living catalogue of the product's UX patterns.",
   "author": {
     "name": "sheraf",
     "url": "https://github.com/sh3raf"
   },
   "keywords": [
-    "design-system",
-    "design-ops",
-    "figma",
-    "figma-mcp",
-    "figma-console",
-    "design-tokens",
     "components",
+    "design-ops",
     "design-review",
-    "deviations"
+    "design-system",
+    "design-tokens",
+    "deviations",
+    "figma",
+    "figma-console",
+    "figma-mcp",
+    "pattern-library",
+    "ux-patterns"
   ],
   "license": "MIT",
   "repository": "https://github.com/sh3raf/sheraf-design-ops",

@@ -9,7 +9,7 @@
     {
       "name": "sdops",
       "source": "./plugins/sdops",
-      "description": "Design-system skills: ds-fixer checks, fixes and reports a Figma screen against its design-system libraries.",
+      "description": "Design-ops skills: ds-fixer resolves review notes against the design-system libraries; ds-ux-patterns keeps a living catalogue of UX patterns.",
       "category": "design",
       "keywords": [
         "design-system",
