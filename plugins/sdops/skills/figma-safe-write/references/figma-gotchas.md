@@ -53,6 +53,8 @@ Figma's Plugin API changes, so re-check an entry that stops matching what you se
   force a relayout.
 
 ## Text
+- **Copying a font from an existing layer:** pass only `{family, style}`. A `fontName` read from a
+  variable font carries `variationSettings` that another font rejects (`"wdth" is not a valid variation setting`).
 - **A text component set to Fill doesn't wrap.** Set its inner text to Fill and auto height too.
 - **Never apply a text style to a glyph-font layer** (currency symbols, icon fonts): it replaces the
   font and the glyph disappears.
