@@ -21,6 +21,7 @@ theirs instead.
 | `Doc/TypeTag` | Small outlined pill: "Interaction", "Page template", "Flow" or "Example" | `type` |
 | `Doc/StatusTag` | Small filled pill: proposed, active, deprecated | `status` |
 | `Doc/PatternId` | Monospaced ID on the surface colour | `id` |
+| `Doc/Title` | PatternId on top, the pattern's screen or flow name below (32 px); the same in every frame | `name`, nested `id` |
 | `Doc/MetaTable` | Product, Platform, Version, Owner, Last updated | one per column |
 | `Doc/RegionBadge` | 24 px accent circle with a number or "3a" | `number` |
 | `Doc/RegionRow` | Badge + label, label wraps | `label` |
@@ -32,12 +33,12 @@ theirs instead.
 
 ## Frames per pattern
 - **Section** `<ID> · <Name>` holding two frames side by side.
-- **Template frame** (1056 wide; 2300 for flows), top to bottom: Header; TypeTag + StatusTag; PatternId +
-  title; Purpose; MetaTable; the anatomy panel (wireframe with RegionBadges; flows show step wireframes
+- **Template frame** (1056 wide; 2300 for flows), top to bottom: Header; TypeTag + StatusTag; Title (code on
+  top, name below); Purpose; MetaTable; the anatomy panel (wireframe with RegionBadges; flows show step wireframes
   with arrows and a branch card); Anatomy list and Key properties side by side; Usage; Behaviour; States
   (a row of StateChips); Content; Accessibility; Do / Don't; one Section per client module that is on;
   Related (PatternLinks to parents and children). Only sections the schema calls for.
-- **Example frame**: same header block, then the real screen at the platform width on the surface
+- **Example frame**: same header block and Title, then the real screen at the platform width on the surface
   colour; flows show each step's screen with a caption `<n> · <step>`.
 
 ## Key properties to fill
