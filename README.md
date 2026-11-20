@@ -35,6 +35,22 @@ is it an off-system override, or is the library itself wrong?
 
 See a full, anonymised run in [`examples/sample-review-round.md`](examples/sample-review-round.md).
 
+## Field results
+
+Measured on one real client review round (client details withheld):
+
+| | |
+|---|---|
+| Review notes resolved | 5 fixes and 4 owner decisions |
+| Fixed at the source, in the libraries | 3 components (25 variants added or fixed) and 2 new tokens |
+| Instances updated in the product file | 216 buttons, 115 currency signs, 23 cards and every flag |
+| Status chips checked against their label | 887 (4 had the wrong colour) |
+| Deviations left at the end | 3, each with an ID and a reason |
+| Safety | A broken variant was caught on the first of 23 cards and reverted, with no content lost; a named version was saved before every write session |
+
+Estimate: about 1,250 instance edits that would otherwise have been done by hand (the sum of the
+counts above, not a time figure).
+
 ## Quick start
 
 ```
