@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.1
+
+- Fixes from the first independent test run (`tests/results/2026-11-20/report.md`):
+  `ds-ux-patterns` asks, then ends its turn; shows the proposal table and waits for a yes in every run;
+  writes only approved rows; never puts `TBD` in an ID or file name; fills `uses` / `used_by` both ways.
+  `ds-ux-patterns` and `ds-fixer` give the setup steps word for word when Figma isn't connected.
+- Test kit: `tests/AGENT-TEST.md` (brief for an independent agent), `tests/run_case.py` (one isolated
+  headless session per case), fictional fixtures in `tests/fixtures/`.
+
 ## 0.5.0
 
 - Shared **Connect** check in `figma-safe-write`, used by every skill: connectors, signed-in account,

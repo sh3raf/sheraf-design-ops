@@ -21,7 +21,8 @@ Collect, and ask only for what is missing:
 - **Notes:** each review note with the reviewer's own ID (R-02, R-05...). Give unnumbered notes one.
 - **Tools:** the Figma Console bridge (`figma_execute`, local, any open file) and the official Figma
   MCP (`use_figma`, `get_screenshot`, `search_design_system`, cloud). Writes go through the bridge or
-  `use_figma`. Run the **Connect** check in `sdops:figma-safe-write` first (connectors, account, file
+  `use_figma`. Load `sdops:figma-safe-write` and run its **Connect** check first, giving the designer
+  its fix-it steps word for word (`/mcp`, the Desktop Bridge plugin path) (connectors, account, file
   access, edit rights on the libraries). With no write tool, stop after step 3 and deliver the
   classified plan and the report, changing nothing.
 

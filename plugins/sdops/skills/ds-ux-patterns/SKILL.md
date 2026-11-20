@@ -17,8 +17,9 @@ For Figma (reading reference screens or writing pages), run the **Connect** chec
 
 Fill this list before step 3. For each item, look where the second column says; ask only for what
 you can't find, one question at a time, offering what you found as the default and saying why you
-ask ("Product code for the IDs: APPX? It goes in every pattern ID."). Then confirm everything in one
-summary.
+ask ("Product code for the IDs: APPX? It goes in every pattern ID."). **Ask, then end your turn and
+wait for the answer**; never write files in the same turn as a question. Then confirm everything in
+one summary.
 
 | Item | Look first in | Default if still unknown |
 |---|---|---|
@@ -36,9 +37,12 @@ summary.
 An existing catalogue is read in full before step 4: its names, IDs and modules win.
 
 **Missing information.** Never invent a name, code, rule or number. What is still unknown after
-asking is written as `TBD`, keeps the pattern `proposed`, goes into the pattern's **Open questions**,
-and is listed in the report. Keep going: a `TBD` never blocks the run. Stop only without evidence
-(no reference screen for a pattern) and say what is needed.
+asking (the designer says "skip" or doesn't know) is written as `TBD`, keeps the pattern `proposed`,
+goes into the pattern's **Open questions**, and is listed in the report. A `TBD` never blocks the run,
+but it never replaces asking: ask first. IDs and file names are never `TBD`: propose a product code
+from the product name; it stands once the designer accepts it or approves the table (an unconfirmed
+code is listed in Open questions). Stop only without evidence (no reference screen for a pattern) and
+say what is needed.
 
 **Scope.** Before the first write, state the patterns you will document and what "done" means for
 each (sections filled, example built). Don't widen it silently.
@@ -55,19 +59,21 @@ entry.
 Three types (`references/pattern-schema.md`): **interaction** (a reused behaviour), **page template**
 (one screen, numbered regions) and **flow** (steps, branches, entry and exit). Record how they nest:
 flows use page templates, page templates use interaction patterns. Use the catalogue's names first, then `references/pattern-vocabulary.md`. Show one table before
-writing:
+writing, then **end your turn and wait for a yes**. This gate holds in every run, slash command or
+not:
 
 | ID | Pattern | Type | Change | Evidence |
 |---|---|---|---|---|
 | ... | ... | Page / Flow | New / Update / Unchanged / Suggested / Deprecate | screen link |
 
-Suggested patterns (common for this product type, missing from the screens) are added only on a yes,
-as `proposed`. Never delete: deprecate with a reason and the replacement.
+Write only the rows the designer approved. Suggested patterns (common for this product type,
+missing from the screens) are added only on a yes, as `proposed`. Never delete: deprecate with a reason and the replacement.
 
 ## 5. Write
 
 Every pattern gets the core sections, its type module and the catalogue's client modules
-(`references/pattern-schema.md`). Do / Don't uses annotated wireframes unless the designer provides a
+(`references/pattern-schema.md`). Fill Related both ways: `uses` / `used_by` in each touched pattern
+and the index's Uses column. Do / Don't uses annotated wireframes unless the designer provides a
 real misuse.
 - **Markdown:** one file per pattern from `references/pattern-template.md`; update the index; set `last reviewed` and add
   a changelog line to every entry you touch.

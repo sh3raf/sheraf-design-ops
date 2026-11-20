@@ -44,6 +44,8 @@ log = case_dir / f"turn-{len(turns) + 1}.jsonl"
 log.write_text(out.stdout)
 
 skills, tools, result = [], [], None
+if not turns and prompt.startswith("/sdops:"):
+    skills.append(prompt.split()[0][1:] + " (slash)")
 for line in out.stdout.splitlines():
     try: ev = json.loads(line)
     except ValueError: continue
