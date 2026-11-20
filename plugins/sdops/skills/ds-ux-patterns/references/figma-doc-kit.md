@@ -18,21 +18,29 @@ theirs instead.
 | Component | Contents | Properties |
 |---|---|---|
 | `Doc/Header` | Library name left, "Pattern Library" right, hairline below | `library` |
-| `Doc/TypeTag` | Small outlined pill: "Page template", "Flow" or "Example" | `type` |
+| `Doc/TypeTag` | Small outlined pill: "Interaction", "Page template", "Flow" or "Example" | `type` |
+| `Doc/StatusTag` | Small filled pill: proposed, active, deprecated | `status` |
 | `Doc/PatternId` | Monospaced ID on the surface colour | `id` |
-| `Doc/MetaTable` | Four columns: Product, Platform, Version, Last updated | `product`, `platform`, `version`, `updated` |
+| `Doc/MetaTable` | Product, Platform, Version, Owner, Last updated | one per column |
 | `Doc/RegionBadge` | 24 px accent circle with a number or "3a" | `number` |
 | `Doc/RegionRow` | Badge + label, label wraps | `label` |
-| `Doc/PropertyRow` | Key (fixed 160 px) + value, hairline below | `key`, `value` |
+| `Doc/PropertyRow` | Key (fixed 160 px) + value, hairline below; height hugs | `key`, `value` |
+| `Doc/Section` | Section title + body text, for Purpose, Usage, Behaviour, Content, Accessibility | `title`, `body` |
+| `Doc/DoDont` | Two cards side by side, each a wireframe slot, a green "Do" or red "Don't" label and a reason | `do`, `dont` |
+| `Doc/StateChip` | Small chip naming one state | `state` |
+| `Doc/PatternLink` | ID + name of a related pattern | `id`, `name` |
 
 ## Frames per pattern
 - **Section** `<ID> · <Name>` holding two frames side by side.
-- **Template frame** (1056 wide, 2300 for flows): Header, TypeTag, PatternId + title, one-sentence
-  description, MetaTable, wireframe panel (grey blocks, one RegionBadge per region; flows show step
-  wireframes with arrows and a branch card), then Regions (or Steps) and Key properties side by side.
-- **Example frame**: same header block, then the real screen at 375 (or the platform width) on the
-  surface colour; flows show each step's screen with a caption `<n> · <step>`.
+- **Template frame** (1056 wide; 2300 for flows), top to bottom: Header; TypeTag + StatusTag; PatternId +
+  title; Purpose; MetaTable; the anatomy panel (wireframe with RegionBadges; flows show step wireframes
+  with arrows and a branch card); Anatomy list and Key properties side by side; Usage; Behaviour; States
+  (a row of StateChips); Content; Accessibility; Do / Don't; one Section per client module that is on;
+  Related (PatternLinks to parents and children). Only sections the schema calls for.
+- **Example frame**: same header block, then the real screen at the platform width on the surface
+  colour; flows show each step's screen with a caption `<n> · <step>`.
 
 ## Key properties to fill
-Layout, Platform, Variants, Data states (loading, empty, error), Accessibility, Customisation, Library
-(the components used). Flows add Type, Entry points, Exit, Branches and Platform differences.
+The type module's fields (`pattern-schema.md`): interaction (trigger, feedback, motion, where it
+appears), page (layout, grid, responsive behaviour, visibility rules), flow (entry points, exit,
+branches, error recovery, abandon and resume, success measure), plus Variants and Library.

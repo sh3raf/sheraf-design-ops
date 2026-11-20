@@ -2,6 +2,8 @@
 
 Common names to start from. Prefer the catalogue's own name when it has one, and add these as aliases.
 
+- **Interaction:** show / hide sensitive value, pull to refresh, swipe actions, long press to edit,
+  inline validation, skeleton loading, empty state, undo, copy to clipboard, biometric confirm.
 - **Navigation:** global navigation, side navigation, tabs, breadcrumbs, back navigation, bottom bar,
   command palette, pagination.
 - **Input:** form, multi-step form (wizard), inline validation, autocomplete, date picker, file upload,

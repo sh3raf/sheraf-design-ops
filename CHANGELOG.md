@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0
+
+- `ds-ux-patterns` follows one pattern schema (`references/pattern-schema.md`) in Markdown and Figma:
+  core sections for every pattern (identity with status and owner, purpose, usage, anatomy,
+  behaviour, states, content, accessibility, do / don't, related, evidence, changelog), a type module
+  (new **interaction** type, page template, flow; types nest), and client modules switched on at
+  intake (regulated, security & privacy, localisation & RTL, multi-platform, multi-brand, analytics,
+  code link).
+- Figma doc kit gains StatusTag, Section, DoDont, StateChip and PatternLink, and the template frame
+  shows only the sections the schema calls for.
+
 ## 0.3.0
 
 - `ds-ux-patterns` writes Figma pattern pages as well as Markdown: a neutral doc kit, a team-set ID

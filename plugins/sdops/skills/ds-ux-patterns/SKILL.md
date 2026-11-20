@@ -16,6 +16,7 @@ Ask where it lives, and read it fully before step 4:
 
 Confirm the **ID convention** (default `PROD-PLT-####`, for example `APP-IOS-0001`: product code,
 platform code, sequence), the product and platform codes, and whether the team has a doc template.
+Read the catalogue's **client modules** from its index; a new catalogue sets them in step 2.
 
 ## 2. Interview
 
@@ -25,6 +26,8 @@ Ask only for what is missing, one question at a time, and confirm the summary:
 - **Features and flows** in scope, and the **reference screens** (Figma links or images).
 - **Library:** which component library the examples must use.
 - **Constraints:** accessibility level, brand rules.
+- **Client modules:** ask the seven intake questions in `references/pattern-schema.md`, show the
+  resulting section list, confirm it, and store it in the catalogue index.
 
 ## 3. Read the reference
 
@@ -35,8 +38,9 @@ entry.
 
 ## 4. Classify and propose
 
-Two types: **page template** (one screen, numbered regions) and **flow** (steps, branches, entry and
-exit). Use the catalogue's names first, then `references/pattern-vocabulary.md`. Show one table before
+Three types (`references/pattern-schema.md`): **interaction** (a reused behaviour), **page template**
+(one screen, numbered regions) and **flow** (steps, branches, entry and exit). Record how they nest:
+flows use page templates, page templates use interaction patterns. Use the catalogue's names first, then `references/pattern-vocabulary.md`. Show one table before
 writing:
 
 | ID | Pattern | Type | Change | Evidence |
@@ -48,11 +52,13 @@ as `proposed`. Never delete: deprecate with a reason and the replacement.
 
 ## 5. Write
 
+Every pattern gets the core sections, its type module and the catalogue's client modules
+(`references/pattern-schema.md`). Do / Don't uses annotated wireframes unless the designer provides a
+real misuse.
 - **Markdown:** one file per pattern from the template; update the index; set `last reviewed` and add
   a changelog line to every entry you touch.
 - **Figma:** before the first write, load `sdops:figma-safe-write`. Build or reuse the doc kit, then
-  per pattern a **Template** frame (ID, title, description, meta, numbered wireframe, regions or steps,
-  key properties) and an **Example** frame (the real screen or screens). Build examples from library
+  per pattern a **Template** frame (the schema's sections, laid out as in the kit) and an **Example** frame (the real screen or screens). Build examples from library
   instances with realistic content; when that can't be done in time, place renders of the real screens
   and label the frame "renders, not live components".
 
