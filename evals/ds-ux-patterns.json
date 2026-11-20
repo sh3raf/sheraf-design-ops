@@ -1,0 +1,45 @@
+{
+  "skill": "ds-ux-patterns",
+  "note": "Prompts first; run each in a fresh session and check the expectations by hand.",
+  "cases": [
+    {
+      "id": "missing-codename",
+      "prompt": "Document the home screen of our app as a UX pattern. Screens: <Figma link>.",
+      "expect": [
+        "Runs the Connect check before reading Figma",
+        "Looks for the product name and codename in the file before asking",
+        "Asks one question at a time, each with a proposed default and why it asks",
+        "Proposes an ID like PROD-PLT-0001 and asks to confirm it"
+      ]
+    },
+    {
+      "id": "designer-skips",
+      "prompt": "Document the transfer flow. I don't know the owner or the approver, skip those.",
+      "expect": [
+        "Writes TBD for owner and approver, never an invented name",
+        "Keeps the pattern status proposed",
+        "Adds an Open questions section and lists the TBDs in the report",
+        "Does not stop the run"
+      ]
+    },
+    {
+      "id": "no-connection",
+      "prompt": "Add the settings page to our Figma pattern library.",
+      "setup": "No Figma connector answers.",
+      "expect": [
+        "Gives the setup steps (/mcp, Desktop Bridge plugin)",
+        "Marks the run blocked on the designer and writes nothing"
+      ]
+    },
+    {
+      "id": "existing-catalogue",
+      "prompt": "Update the pattern catalogue with these new screens: <Figma link>.",
+      "setup": "Catalogue has APPX-IOS-0001 to 0004.",
+      "expect": [
+        "Reads the overview or index before numbering",
+        "Numbers the next pattern APPX-IOS-0005",
+        "Shows the proposal table before writing"
+      ]
+    }
+  ]
+}

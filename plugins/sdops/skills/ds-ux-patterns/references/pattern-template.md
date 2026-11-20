@@ -58,6 +58,10 @@ used_by: [<IDs of parent patterns>]
 
 ## Changelog
 - <YYYY-MM-DD>: <what changed and why>
+
+## Open questions
+<!-- only while something is TBD -->
+- <question> (who can answer; what it blocks)
 ```
 
 ## Index: `ux-patterns/index.md`
@@ -65,8 +69,10 @@ used_by: [<IDs of parent patterns>]
 ```markdown
 # UX patterns: <product>
 
+Product: <name> (codename <codename>) · Platforms: <...> · Library: <link>
+Owner: <team> · Approver: <person who moves proposed → active>
 Client modules: <Regulated, Security & privacy, ...>
-ID convention: <PROD-PLT-####>
+ID convention: <PROD-PLT-####> · Next free ID: <PROD-PLT-0005>
 
 | ID | Pattern | Type | Status | Uses | Last reviewed |
 |---|---|---|---|---|---|

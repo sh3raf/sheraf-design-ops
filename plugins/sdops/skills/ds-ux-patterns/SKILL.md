@@ -8,26 +8,40 @@ license: MIT
 
 Keep one catalogue of the product's UX patterns, grounded in its real screens, and keep it current.
 
-## 1. Find the catalogue and its conventions
+## 1. Connect
 
-Ask where it lives, and read it fully before step 4:
-- **Markdown:** `ux-patterns/index.md` plus one file per pattern (`references/pattern-template.md`).
-- **Figma:** a pattern-library file with one section per pattern (`references/figma-doc-kit.md`).
+For Figma (reading reference screens or writing pages), run the **Connect** check in
+`sdops:figma-safe-write` first. Markdown-only runs from images skip it.
 
-Confirm the **ID convention** (default `PROD-PLT-####`, for example `APP-IOS-0001`: product code,
-platform code, sequence), the product and platform codes, and whether the team has a doc template.
-Read the catalogue's **client modules** from its index; a new catalogue sets them in step 2.
+## 2. Intake: look first, then ask
 
-## 2. Interview
+Fill this list before step 3. For each item, look where the second column says; ask only for what
+you can't find, one question at a time, offering what you found as the default and saying why you
+ask ("Product code for the IDs: APPX? It goes in every pattern ID."). Then confirm everything in one
+summary.
 
-Ask only for what is missing, one question at a time, and confirm the summary:
-- **Product:** what it does and for whom; the main jobs users come to do.
-- **Platform:** web, iOS, Android, desktop; breakpoints; languages and right-to-left.
-- **Features and flows** in scope, and the **reference screens** (Figma links or images).
-- **Library:** which component library the examples must use.
-- **Constraints:** accessibility level, brand rules.
-- **Client modules:** ask the seven intake questions in `references/pattern-schema.md`, show the
-  resulting section list, confirm it, and store it in the catalogue index.
+| Item | Look first in | Default if still unknown |
+|---|---|---|
+| Product name, codename | File, page and cover names; the catalogue; docs the designer points to (Notion, Jira, README) | ask; else `TBD` |
+| ID convention, product and platform codes | Existing IDs in the catalogue | `PROD-PLT-####` from the codename and platform, confirmed |
+| IDs already used, next free number | The catalogue index or Figma overview | `0001` |
+| Platforms, breakpoints, languages, right-to-left | Frame sizes, page names, text on the screens | ask |
+| Flows and screens in scope, with a link each | Page and section names, prototype flows | list what you found, ask to confirm |
+| Component library (file link) | Libraries the file uses, instances on the screens | ask |
+| Catalogue location | An existing `ux-patterns/` folder or pattern page | propose a new page in the product file |
+| Owner, approver, version | The catalogue index | `TBD`, version 1.0 |
+| Client modules | The catalogue index | the seven questions in `references/pattern-schema.md` |
+| Constraints: accessibility level, brand rules | Conventions file | WCAG 2.2 AA |
+
+An existing catalogue is read in full before step 4: its names, IDs and modules win.
+
+**Missing information.** Never invent a name, code, rule or number. What is still unknown after
+asking is written as `TBD`, keeps the pattern `proposed`, goes into the pattern's **Open questions**,
+and is listed in the report. Keep going: a `TBD` never blocks the run. Stop only without evidence
+(no reference screen for a pattern) and say what is needed.
+
+**Scope.** Before the first write, state the patterns you will document and what "done" means for
+each (sections filled, example built). Don't widen it silently.
 
 ## 3. Read the reference
 
@@ -55,16 +69,23 @@ as `proposed`. Never delete: deprecate with a reason and the replacement.
 Every pattern gets the core sections, its type module and the catalogue's client modules
 (`references/pattern-schema.md`). Do / Don't uses annotated wireframes unless the designer provides a
 real misuse.
-- **Markdown:** one file per pattern from the template; update the index; set `last reviewed` and add
+- **Markdown:** one file per pattern from `references/pattern-template.md`; update the index; set `last reviewed` and add
   a changelog line to every entry you touch.
-- **Figma:** before the first write, load `sdops:figma-safe-write`. Build or reuse the doc kit, then
+- **Catalogue overview:** keep one index current on every run, the source for the next free ID: the
+  Markdown `index.md`, or in Figma an **Overview** frame first on the page (product, codename,
+  platforms, library, client modules, owner, approver, then one row per pattern: ID, name, type,
+  status, owner, last reviewed).
+- **Status:** new patterns are `proposed`. Set `active` only on the approver's yes, and note who and
+  when in the Changelog.
+- **Figma:** before the first write, load `sdops:figma-safe-write`. Build or reuse the doc kit (`references/figma-doc-kit.md`), then
   per pattern a **Template** frame (the schema's sections, laid out as in the kit) and an **Example** frame (the real screen or screens). Build examples from library
   instances with realistic content; when that can't be done in time, place renders of the real screens
   and label the frame "renders, not live components".
 
 ## 6. Report
 
-Added, updated, deprecated and declined; deprecated components found in the reference; places where
+Added, updated, deprecated and declined; every `TBD` with the question that resolves it and who can
+answer; deprecated components found in the reference; places where
 the live example contradicts the documented rule (a library or product gap to raise); placeholders or
 gaps left in examples; entries not reviewed for 6 months. Anonymise client names before anything leaves
 the team.

@@ -19,6 +19,18 @@ for entry in market["plugins"]:
             if not (skill.parent / ref).exists():
                 errors.append(f"{skill}: missing {ref}")
 
+for ev in sorted((root / "evals").glob("*.json")):
+    data = json.loads(ev.read_text())
+    if not any((root / e["source"] / "skills" / data["skill"]).is_dir() for e in market["plugins"]):
+        errors.append(f"{ev.name}: no skill {data['skill']}")
+    for case in data["cases"]:
+        if not case.get("prompt") or not case.get("expect"):
+            errors.append(f"{ev.name}: {case.get('id')} needs prompt and expect")
+
+for link in re.findall(r"\]\(([^)#:]+\.md)\)", (root / "README.md").read_text()):
+    if not (root / link).exists():
+        errors.append(f"README.md: broken link {link}")
+
 changelog = (root / "CHANGELOG.md").read_text()
 for entry in market["plugins"]:
     version = json.loads((root / entry["source"] / ".claude-plugin/plugin.json").read_text())["version"]

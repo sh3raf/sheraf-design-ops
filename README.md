@@ -73,9 +73,15 @@ Or start a pattern catalogue:
 the "Flows" page of this Figma file.
 ```
 
+## Guides
+
+Step by step, with the questions each skill asks and what you get:
+[document your UX patterns](docs/guides/ds-ux-patterns.md) ·
+[fix review notes](docs/guides/ds-fixer.md).
+
 ## Needs
 
-Setup takes about 5 minutes: see [docs/setup.md](docs/setup.md).
+Setup takes about 5 minutes: see the [setup guide](plugins/sdops/skills/figma-safe-write/references/setup.md). Then ask Claude "check my Figma setup for sdops".
 
 - **Official Figma MCP** (`use_figma`), to search your libraries, screenshot any file and write.
 - **Figma Console MCP** with its Desktop Bridge plugin, for fast local reads and writes in open files.

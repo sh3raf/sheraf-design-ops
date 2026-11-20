@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.5.0
+
+- Shared **Connect** check in `figma-safe-write`, used by every skill: connectors, signed-in account,
+  file access, edit rights, and the Figma tool's own guide; plain fix-it steps for the designer
+  (`/mcp`, Desktop Bridge plugin). The setup guide moved inside the plugin and was rewritten for designers.
+- `ds-ux-patterns` intake: a look-first checklist (product name and codename, ID codes, IDs in use,
+  flows and screens in scope, library, catalogue location, owner and approver), one question at a
+  time with a default and a reason. Missing answers become `TBD` plus an **Open questions** section,
+  never invented and never blocking. Scope stated before the first write.
+- Catalogue **Overview** (Markdown index or Figma frame) with the next free ID; patterns move from
+  proposed to active only on the approver's yes. Doc kit gains IndexRow and OpenQuestion.
+- Designer guides per skill in `docs/guides/`, and prompt-first evals in `evals/`.
+
 ## 0.4.0
 
 - `ds-ux-patterns` follows one pattern schema (`references/pattern-schema.md`) in Markdown and Figma:

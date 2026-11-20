@@ -2,7 +2,7 @@
 
 One definition for every pattern, in Markdown and in Figma. A pattern = **core** + its **type module**
 + the **client modules** switched on for this catalogue. Leave out a section only when its module is
-off; never leave a core section empty (write "None" and why).
+off; never leave a core section empty (write "None" and why, or `TBD` with an open question).
 
 ## Core (every pattern)
 
@@ -20,6 +20,7 @@ off; never leave a core section empty (write "None" and why).
 | Related | Parent and child patterns (by ID), library components that build it |
 | Evidence | The real screens or frames it comes from |
 | Changelog | Date, what changed, why |
+| Open questions | Only while something is `TBD`: the question, who can answer, what it blocks |
 
 ## Type modules (one per pattern)
 

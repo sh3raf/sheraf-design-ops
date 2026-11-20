@@ -1,0 +1,24 @@
+{
+  "skill": "ds-fixer",
+  "note": "Prompts first; run each in a fresh session and check the expectations by hand.",
+  "cases": [
+    {
+      "id": "read-only",
+      "prompt": "Fix R-01 and R-02 on this screen: <Figma link>.",
+      "setup": "The designer can view but not edit the file.",
+      "expect": [
+        "Says it is read-only before classifying",
+        "Delivers the classified plan and report, changing nothing"
+      ]
+    },
+    {
+      "id": "library-bug",
+      "prompt": "The pills should match their text colour: <Figma link>.",
+      "expect": [
+        "Inspects the chip variants before proposing",
+        "Classifies as library bug when the variant is wrong in the library",
+        "Asks for a yes on the library change and never publishes"
+      ]
+    }
+  ]
+}
