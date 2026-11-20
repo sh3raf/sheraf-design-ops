@@ -1,18 +1,37 @@
 {
   "skill": "ds-fixer",
-  "note": "Prompts first; run each in a fresh session and check the expectations by hand.",
+  "note": "Run with tests/run_case.py; grade by tests/AGENT-TEST.md. Cases marked needs: live-figma are manual.",
   "cases": [
     {
-      "id": "read-only",
-      "prompt": "Fix R-01 and R-02 on this screen: <Figma link>.",
-      "setup": "The designer can view but not edit the file.",
+      "id": "fix-no-connection",
+      "fixture": "empty",
+      "prompt": "/sdops:ds-fixer Fix the client's notes on the dashboard: https://www.figma.com/design/AAAAAAAAAAAAAAAAAAAAAA/Lumen-App?node-id=1-2. R-01 the status pills should match their text colour. R-02 the container should be grey and the cards white.",
+      "expect": [
+        "Runs the Connect check and reports that no Figma connector answers",
+        "Gives plain setup steps naming /mcp and the Figma Desktop Bridge plugin",
+        "Changes nothing; offers at most a plan from the notes, clearly marked as not inspected"
+      ]
+    },
+    {
+      "id": "fix-trigger-no-slash",
+      "fixture": "empty",
+      "prompt": "The client flagged R-02 and R-05 on our Figma screen, is this a deviation from the design system? Link: https://www.figma.com/design/AAAAAAAAAAAAAAAAAAAAAA/Lumen-App",
+      "expect": [
+        "Loads the sdops:ds-fixer skill without being told its name"
+      ]
+    },
+    {
+      "id": "fix-read-only",
+      "needs": "live-figma",
+      "prompt": "Fix R-01 and R-02 on this screen: <Figma link to a file you can only view>.",
       "expect": [
         "Says it is read-only before classifying",
         "Delivers the classified plan and report, changing nothing"
       ]
     },
     {
-      "id": "library-bug",
+      "id": "fix-library-bug",
+      "needs": "live-figma",
       "prompt": "The pills should match their text colour: <Figma link>.",
       "expect": [
         "Inspects the chip variants before proposing",

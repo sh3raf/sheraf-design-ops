@@ -1,0 +1,17 @@
+{
+  "skill": "figma-safe-write",
+  "note": "Run with tests/run_case.py; grade by tests/AGENT-TEST.md.",
+  "cases": [
+    {
+      "id": "safe-setup-check",
+      "fixture": "empty",
+      "prompt": "check my Figma setup for sdops",
+      "expect": [
+        "Loads sdops:figma-safe-write",
+        "Reports that neither the Figma MCP nor the Desktop Bridge answers",
+        "Gives the fix in plain steps: /mcp → figma → Authenticate, and Plugins → Development → Figma Desktop Bridge",
+        "Mentions signing in with the account that can open the client's files"
+      ]
+    }
+  ]
+}

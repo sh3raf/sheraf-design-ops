@@ -26,6 +26,8 @@ for ev in sorted((root / "evals").glob("*.json")):
     for case in data["cases"]:
         if not case.get("prompt") or not case.get("expect"):
             errors.append(f"{ev.name}: {case.get('id')} needs prompt and expect")
+        if case.get("needs") != "live-figma" and not (root / "tests/fixtures" / case.get("fixture", "?")).is_dir():
+            errors.append(f"{ev.name}: {case.get('id')} has no fixture folder")
 
 for link in re.findall(r"\]\(([^)#:]+\.md)\)", (root / "README.md").read_text()):
     if not (root / link).exists():

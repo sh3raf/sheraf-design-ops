@@ -1,44 +1,71 @@
 {
   "skill": "ds-ux-patterns",
-  "note": "Prompts first; run each in a fresh session and check the expectations by hand.",
+  "note": "Run with tests/run_case.py; grade by tests/AGENT-TEST.md. Fixtures are fictional.",
   "cases": [
     {
-      "id": "missing-codename",
-      "prompt": "Document the home screen of our app as a UX pattern. Screens: <Figma link>.",
+      "id": "ux-missing-codename",
+      "fixture": "lumen",
+      "prompt": "/sdops:ds-ux-patterns Document the home screen of our app as a UX pattern. The screen notes are in screens/home.md. Write the catalogue as Markdown here.",
       "expect": [
-        "Runs the Connect check before reading Figma",
-        "Looks for the product name and codename in the file before asking",
-        "Asks one question at a time, each with a proposed default and why it asks",
-        "Proposes an ID like PROD-PLT-0001 and asks to confirm it"
+        "Reads README.md or the screen notes before asking, and does not ask for anything they already answer (product name, platform, screen size)",
+        "Asks one question at a time (at most one question per turn, or one bundled confirmation)",
+        "Offers a proposed default with each question and says why it asks",
+        "Proposes an ID in the PROD-PLT-#### shape (e.g. LUMN-IOS-0001) and asks to confirm it",
+        "Does not require a Figma connection for a Markdown run from local notes"
       ]
     },
     {
-      "id": "designer-skips",
-      "prompt": "Document the transfer flow. I don't know the owner or the approver, skip those.",
+      "id": "ux-designer-skips",
+      "fixture": "lumen",
+      "prompt": "/sdops:ds-ux-patterns Document the 'Book a stay' flow from screens/booking-flow.md as Markdown in this folder. I don't know the codename, the owner or the approver: skip those.",
       "expect": [
-        "Writes TBD for owner and approver, never an invented name",
+        "Writes TBD for codename, owner and approver; never invents a name",
         "Keeps the pattern status proposed",
-        "Adds an Open questions section and lists the TBDs in the report",
-        "Does not stop the run"
+        "Adds an Open questions section to the pattern listing the TBDs",
+        "Records branch 3a, entry points and exit from the notes",
+        "Does not stop the run because of the TBDs; writes the files",
+        "Shows a proposal table before writing"
       ]
     },
     {
-      "id": "no-connection",
-      "prompt": "Add the settings page to our Figma pattern library.",
-      "setup": "No Figma connector answers.",
+      "id": "ux-no-connection",
+      "fixture": "empty",
+      "prompt": "/sdops:ds-ux-patterns Add the settings page to our Figma pattern library: https://www.figma.com/design/AAAAAAAAAAAAAAAAAAAAAA/Lumen-Patterns",
       "expect": [
-        "Gives the setup steps (/mcp, Desktop Bridge plugin)",
-        "Marks the run blocked on the designer and writes nothing"
+        "Notices no Figma connector answers",
+        "Gives plain setup steps naming /mcp and the Figma Desktop Bridge plugin",
+        "Says the run is blocked on the designer and writes nothing"
       ]
     },
     {
-      "id": "existing-catalogue",
-      "prompt": "Update the pattern catalogue with these new screens: <Figma link>.",
-      "setup": "Catalogue has APPX-IOS-0001 to 0004.",
+      "id": "ux-existing-catalogue",
+      "fixture": "lumen-catalogue",
+      "prompt": "/sdops:ds-ux-patterns Update the pattern catalogue in ux-patterns/ with the new Saved screen (screens/saved.md).",
       "expect": [
-        "Reads the overview or index before numbering",
-        "Numbers the next pattern APPX-IOS-0005",
-        "Shows the proposal table before writing"
+        "Reads ux-patterns/index.md before numbering and reuses its conventions (codename HALO, LUMN-IOS)",
+        "Numbers the new pattern LUMN-IOS-0005",
+        "Does not re-ask what the index already answers (owner, approver, modules)",
+        "Shows the proposal table before writing",
+        "Links the new pattern to existing ones where they apply (e.g. 0003 or 0004 for states)",
+        "Updates the index and its Next free ID"
+      ]
+    },
+    {
+      "id": "ux-no-evidence",
+      "fixture": "lumen",
+      "prompt": "/sdops:ds-ux-patterns Also document our checkout and refund flows as Markdown here.",
+      "expect": [
+        "Says there is no screen for the refund flow and asks for one instead of inventing it",
+        "Does not write a refund pattern without evidence",
+        "Treats checkout as covered by the booking flow notes or asks, rather than inventing a new one"
+      ]
+    },
+    {
+      "id": "ux-trigger-no-slash",
+      "fixture": "lumen",
+      "prompt": "Can you help me write down the UX patterns of our app? The screen notes are in screens/.",
+      "expect": [
+        "Loads the sdops:ds-ux-patterns skill without being told its name"
       ]
     }
   ]
