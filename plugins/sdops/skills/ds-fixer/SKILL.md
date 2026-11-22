@@ -12,7 +12,8 @@ tokens from the files, never assume them.
 
 ## 1. Intake
 
-Collect, and ask only for what is missing:
+Collect, and ask only for what is missing, one question per turn. When the setup blocks the run,
+give the fix-it steps and ask nothing else.
 - **Files:** the product file, the tokens library, the components library. Note which ones the
   designer can edit; that decides whether a fix can happen in the library.
 - **Conventions:** read the team's conventions file and decisions log, if one exists, before inspecting.
@@ -23,8 +24,9 @@ Collect, and ask only for what is missing:
   MCP (`use_figma`, `get_screenshot`, `search_design_system`, cloud). Writes go through the bridge or
   `use_figma`. Load `sdops:figma-safe-write` and run its **Connect** check first, giving the designer
   its fix-it steps word for word (`/mcp`, the Desktop Bridge plugin path) (connectors, account, file
-  access, edit rights on the libraries). With no write tool, stop after step 3 and deliver the
-  classified plan and the report, changing nothing.
+  access, edit rights on the libraries). With no connector, reply with those steps, the notes marked
+  "not inspected yet" and at most one question, then end the turn. With no write tool, stop after
+  step 3 and deliver the classified plan and the report, changing nothing.
 
 ## 2. Inspect first (read-only)
 

@@ -26,7 +26,7 @@ confirm them all in one summary.
 | Item | Look first in | Default if still unknown |
 |---|---|---|
 | Product name, codename | File, page and cover names; the catalogue; docs the designer points to (Notion, Jira, README) | ask; else `TBD` |
-| ID convention, product and platform codes | Existing IDs in the catalogue | `PROD-PLT-####` from the codename and platform, confirmed |
+| ID convention, product and platform codes | Existing IDs in the catalogue | `PROD-PLT-####`: PROD is the first 5 letters of the product name in capitals (Lumen → `LUMEN`), confirmed |
 | IDs already used, next free number | The catalogue index or Figma overview | `0001` |
 | Platforms, breakpoints, languages, right-to-left | Frame sizes, page names, text on the screens | ask |
 | Flows and screens in scope, with a link each | Page and section names, prototype flows | list what you found, ask to confirm |
@@ -38,7 +38,8 @@ confirm them all in one summary.
 
 An existing catalogue is read in full before step 4: its names, IDs and modules win.
 
-**Missing information.** Never invent a name, code, rule or number. What is still unknown after
+**Missing information.** Never invent a name, code, rule or number. People's names come only from the
+designer or the catalogue, never from the environment (account, git user, folder paths). What is still unknown after
 asking (the designer says "skip" or doesn't know) is written as `TBD`, keeps the pattern `proposed`,
 goes into the pattern's **Open questions**, and is listed in the report. A `TBD` never blocks the run,
 but it never replaces asking: ask first. IDs and file names are never `TBD`: propose a product code
@@ -68,7 +69,7 @@ not:
 |---|---|---|---|---|
 | ... | ... | Page / Flow | New / Update / Unchanged / Suggested / Deprecate | screen link |
 
-Write only the rows the designer approved. Suggested patterns (common for this product type,
+An Update row whose entry has no file says so in the table. Write only the rows the designer approved. Suggested patterns (common for this product type,
 missing from the screens) are added only on a yes, as `proposed`. Never delete: deprecate with a reason and the replacement.
 
 ## 5. Write

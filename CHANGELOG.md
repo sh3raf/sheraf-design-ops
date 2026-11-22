@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.3
+
+- Fixes from the full re-run (`tests/results/2026-11-23/report.md`): people's names only from the
+  designer or the catalogue, never from the environment; a fixed product code (first 5 letters of the
+  product name); an Update row for an entry with no file says so in the table; ds-fixer asks one
+  question per turn and, with no connector, gives only the steps, the notes and at most one question.
+
 ## 0.5.2
 
 - `ds-ux-patterns` asks one question per turn, never a numbered list beside the table, and does not
