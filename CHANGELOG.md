@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.2
+
+- `ds-ux-patterns` asks one question per turn, never a numbered list beside the table, and does not
+  re-ask skipped items. Client modules are switched on from the screens and confirmed in the summary
+  instead of seven questions.
+
 ## 0.5.1
 
 - Fixes from the first independent test run (`tests/results/2026-11-20/report.md`):

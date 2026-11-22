@@ -16,10 +16,12 @@ For Figma (reading reference screens or writing pages), run the **Connect** chec
 ## 2. Intake: look first, then ask
 
 Fill this list before step 3. For each item, look where the second column says; ask only for what
-you can't find, one question at a time, offering what you found as the default and saying why you
-ask ("Product code for the IDs: APPX? It goes in every pattern ID."). **Ask, then end your turn and
-wait for the answer**; never write files in the same turn as a question. Then confirm everything in
-one summary.
+you can't find. **One question per turn:** the most blocking unknown first (the product code), with
+what you found as the default and why you ask ("Product code for the IDs: APPX? It goes in every
+pattern ID."). Never number or list a second question in that turn, even beside the step 4 table;
+items the designer skipped are not asked again. **Ask, then end your turn and wait for the
+answer**; never write files in the same turn as a question. Items with a default are not asked:
+confirm them all in one summary.
 
 | Item | Look first in | Default if still unknown |
 |---|---|---|
@@ -31,7 +33,7 @@ one summary.
 | Component library (file link) | Libraries the file uses, instances on the screens | ask |
 | Catalogue location | An existing `ux-patterns/` folder or pattern page | propose a new page in the product file |
 | Owner, approver, version | The catalogue index | `TBD`, version 1.0 |
-| Client modules | The catalogue index | the seven questions in `references/pattern-schema.md` |
+| Client modules | The catalogue index; the screens (payments, languages, platforms) | switched on from that evidence by the rules in `references/pattern-schema.md`, confirmed in the summary |
 | Constraints: accessibility level, brand rules | Conventions file | WCAG 2.2 AA |
 
 An existing catalogue is read in full before step 4: its names, IDs and modules win.

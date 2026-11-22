@@ -19,6 +19,7 @@
       "fixture": "lumen",
       "prompt": "/sdops:ds-ux-patterns Document the 'Book a stay' flow from screens/booking-flow.md as Markdown in this folder. I don't know the codename, the owner or the approver: skip those.",
       "expect": [
+        "Asks at most one question per turn and does not re-ask the skipped items",
         "Writes TBD for codename, owner and approver; never invents a name",
         "Keeps the pattern status proposed",
         "Adds an Open questions section to the pattern listing the TBDs",

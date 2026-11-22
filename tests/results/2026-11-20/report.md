@@ -115,3 +115,9 @@ approved rows. Fixture index had a broken link (removed).
 
 Open: ux-designer-skips still bundles three questions in one turn (allowed as one confirmation list,
 but not one at a time).
+
+## Re-run, 23 November (0.5.2)
+
+| Case | Result | Evidence |
+|---|---|---|
+| ux-designer-skips | PASS | Shows the table with modules set from evidence (Security & privacy on, payments), asks **one** question (languages and RTL), writes nothing. Before the fix it asked two numbered questions, one with six sub-questions. |
