@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.4
+
+- Ready for the Claude plugin directory: a README inside the plugin folder (what it does, how to use
+  it, what it needs, what data it touches), an icon (three components and one token on a grid),
+  `displayName`, `documentationUrl` and `supportUrl`. The marketplace description now matches the plugin.
+
 ## 0.5.3
 
 - Fixes from the full re-run (`tests/results/2026-11-23/report.md`): people's names only from the

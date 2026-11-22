@@ -1,3 +1,5 @@
+<img src="plugins/sdops/assets/icon.png" alt="" width="96">
+
 # sheraf design ops
 
 **Turn design review notes into fixes that stay on your design system, and a report the client can read.**

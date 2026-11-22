@@ -1,6 +1,7 @@
 {
   "name": "sdops",
-  "version": "0.5.3",
+  "displayName": "sheraf design ops",
+  "version": "0.5.4",
   "description": "Design-ops skills by sheraf: ds-fixer resolves review notes against the design-system libraries; ds-ux-patterns documents UX patterns in Markdown or Figma; figma-safe-write keeps every Figma write safe.",
   "author": {
     "name": "sheraf",
@@ -21,5 +22,8 @@
   ],
   "license": "MIT",
   "repository": "https://github.com/sh3raf/sheraf-design-ops",
-  "homepage": "https://github.com/sh3raf/sheraf-design-ops#readme"
+  "homepage": "https://github.com/sh3raf/sheraf-design-ops#readme",
+  "documentationUrl": "https://github.com/sh3raf/sheraf-design-ops/tree/main/docs/guides",
+  "supportUrl": "https://github.com/sh3raf/sheraf-design-ops/issues",
+  "icon": "./assets/icon.png"
 }

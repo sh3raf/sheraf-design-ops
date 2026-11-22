@@ -9,7 +9,7 @@
     {
       "name": "sdops",
       "source": "./plugins/sdops",
-      "description": "Design-ops skills: ds-fixer resolves review notes against the design-system libraries; ds-ux-patterns keeps a living catalogue of UX patterns.",
+      "description": "Design-ops skills by sheraf: ds-fixer resolves review notes against the design-system libraries; ds-ux-patterns documents UX patterns in Markdown or Figma; figma-safe-write keeps every Figma write safe.",
       "category": "design",
       "keywords": [
         "design-system",
