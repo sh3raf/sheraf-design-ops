@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.5
+
+- Evals: expectations for the bugs found on 23 November (names from the environment, product code,
+  one question per turn, missing entry files). Tester brief names these checks.
+- Re-ran ux-existing-catalogue and ux-no-evidence after 0.5.3: both pass.
+- `docs/brand/`: the icon as SVG and a transparent PNG and SVG, for listings that want them.
+
 ## 0.5.4
 
 - Ready for the Claude plugin directory: a README inside the plugin folder (what it does, how to use

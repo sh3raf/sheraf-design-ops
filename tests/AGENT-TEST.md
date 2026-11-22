@@ -24,7 +24,9 @@ connection, no user memory and a folder copied from a fictional fixture. You pla
    - Grade each expectation PASS / FAIL / PARTIAL with one line of evidence.
 4. Look across cases for problems no expectation names: invented facts, questions the files already
    answered, wrong IDs, written files with a broken structure, unclear wording a designer wouldn't
-   follow, client or real-company names, anything unsafe.
+   follow, client or real-company names, a person's name taken from the environment (account, git
+   user, folder paths), more than one question in a turn, anything unsafe. The report is committed:
+   describe a leaked name, never quote it.
 5. Write `tests/results/<date>/report.md`:
 
 ```markdown

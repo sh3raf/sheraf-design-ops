@@ -97,3 +97,12 @@ Transcript: ux-trigger-no-slash/turn-1.jsonl
 | ux-designer-skips | PASS | One question, then after "yes" writes `LUMEN-IOS-0001-book-a-stay.md`; no person's name in any file. |
 
 Not re-run after the fixes: ux-existing-catalogue (the missing-file note in the table), ux-no-evidence.
+
+## Re-run after 0.5.4 (the two cases not re-run before)
+
+| Case | Result | Evidence |
+|---|---|---|
+| ux-existing-catalogue | PASS | Turn 1 table says "Existing entries have no files" before approval. After "yes": only 0005-0007 written; 0005 `uses: [LUMN-IOS-0006, LUMN-IOS-0007]`, 0006 and 0007 `used_by: [LUMN-IOS-0005]`; next free ID 0008. Minor: turn 1 also asked whether the tab bar should be catalogued, beside the approval question. |
+| ux-no-evidence | PASS | Refund refused for lack of a screen; one question (product code `LUMEN`, with the reason); after the answer, a table `LUMEN-IOS-0001`-`0004` and a wait for yes. |
+
+No person's name in any written file. The expectations for every bug found in this run are now in `evals/*.json`.

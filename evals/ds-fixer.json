@@ -9,7 +9,8 @@
       "expect": [
         "Runs the Connect check and reports that no Figma connector answers",
         "Gives plain setup steps naming /mcp and the Figma Desktop Bridge plugin",
-        "Changes nothing; offers at most a plan from the notes, clearly marked as not inspected"
+        "Changes nothing; offers at most a plan from the notes, clearly marked as not inspected",
+        "Asks at most one question in the turn"
       ]
     },
     {
