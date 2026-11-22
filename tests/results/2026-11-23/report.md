@@ -106,3 +106,23 @@ Not re-run after the fixes: ux-existing-catalogue (the missing-file note in the 
 | ux-no-evidence | PASS | Refund refused for lack of a screen; one question (product code `LUMEN`, with the reason); after the answer, a table `LUMEN-IOS-0001`-`0004` and a wait for yes. |
 
 No person's name in any written file. The expectations for every bug found in this run are now in `evals/*.json`.
+
+## Native suite: `claude plugin eval` (first turn, 3 runs per arm, Sonnet, judge Sonnet)
+
+| Case | With plugin | Without | Δ |
+|---|---|---|---|
+| fix-no-connection | 1.00 | 0.33 | +0.67 |
+| fix-trigger-no-slash | 1.00 | 1.00 | 0.00 |
+| safe-setup-check | 1.00 | 0.00 | +1.00 |
+| ux-designer-skips | 1.00 | 0.33 | +0.67 |
+| ux-existing-catalogue | 1.00 | 0.33 | +0.67 |
+| ux-missing-codename | 1.00 | 0.25 | +0.75 |
+| ux-no-connection | 1.00 | 0.50 | +0.50 |
+| ux-no-evidence | 1.00 | 0.67 | +0.33 |
+| ux-trigger-no-slash | 1.00 | 0.00 | +1.00 |
+
+Mean Δ about +0.62. Three cases were re-run after two rubrics were tightened (the judge counted the
+table approval and the list of defaults as extra questions, which the skill allows by design).
+fix-trigger-no-slash shows Δ 0: without the plugin Claude also avoids writing, and the skill-fired
+check is an indicator only. Seen once in the eval sandbox: the skill could not read its own
+`references/` files (permission denied); it said so and invented nothing. About $4.60 in total.

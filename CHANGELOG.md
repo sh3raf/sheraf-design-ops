@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.6
+
+- Native eval suite for `claude plugin eval` in `plugins/sdops/evals/`: 9 first-turn cases with
+  graders (no writes before a yes, one question, ID code, setup steps, skill fires unprompted), scored
+  with and without the plugin. All 9 score 1.00 with it; mean Δ about +0.62.
+- Fixtures moved to `plugins/sdops/evals/fixtures/`, shared by both suites.
+
 ## 0.5.5
 
 - Evals: expectations for the bugs found on 23 November (names from the environment, product code,

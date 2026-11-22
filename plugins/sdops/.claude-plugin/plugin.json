@@ -1,7 +1,7 @@
 {
   "name": "sdops",
   "displayName": "sheraf design ops",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "Design-ops skills by sheraf: ds-fixer resolves review notes against the design-system libraries; ds-ux-patterns documents UX patterns in Markdown or Figma; figma-safe-write keeps every Figma write safe.",
   "author": {
     "name": "sheraf",
