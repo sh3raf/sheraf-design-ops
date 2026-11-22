@@ -1,4 +1,4 @@
-<img src="assets/icon.png" alt="" width="96">
+![sheraf design ops icon](assets/icon.png)
 
 # sheraf design ops
 
