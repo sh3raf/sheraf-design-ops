@@ -5,7 +5,7 @@ cd "$(git rev-parse --show-toplevel)"
 python3 tests/check.py
 if command -v claude >/dev/null 2>&1; then
   claude plugin validate . >/dev/null
-  claude plugin validate --profile directory plugins/sdops >/dev/null
+  claude plugin validate --strict --profile directory plugins/sdops >/dev/null
   echo "plugin validate: ok"
 fi
 # Client names live only on this machine, one per line, never in the repo.

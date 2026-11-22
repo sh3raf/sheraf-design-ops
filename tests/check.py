@@ -29,9 +29,16 @@ for ev in sorted((root / "evals").glob("*.json")):
         if case.get("needs") != "live-figma" and not (root / "plugins/sdops/evals/fixtures" / case.get("fixture", "?")).is_dir():
             errors.append(f"{ev.name}: {case.get('id')} has no fixture folder")
 
-for link in re.findall(r"\]\(([^)#:]+\.md)\)", (root / "README.md").read_text()):
-    if not (root / link).exists():
-        errors.append(f"README.md: broken link {link}")
+for case in sorted((root / "plugins/sdops/evals").glob("*/prompt.md")):
+    if not list((case.parent / "graders").glob("*.md")):
+        errors.append(f"{case.parent.name}: native eval case has no grader")
+
+for doc in sorted(root.rglob("*.md")):
+    if any(p in doc.parts for p in (".git", "results")):
+        continue
+    for link in re.findall(r"\]\(([^)#:\s]+)\)", doc.read_text()):
+        if "<" not in link and not (doc.parent / link).exists():  # <id>-<slug>.md is a template placeholder
+            errors.append(f"{doc.relative_to(root)}: broken link {link}")
 
 changelog = (root / "CHANGELOG.md").read_text()
 for entry in market["plugins"]:

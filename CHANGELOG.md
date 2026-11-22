@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.7
+
+- Checks: every Markdown link in the repo, every native eval case has a grader; the pre-push hook
+  validates with `--strict`, as the directory does.
+- Guide: ds-ux-patterns now matches the skill (modules from the screens, one question per message,
+  the Markdown option).
+- Issue template that keeps client names and links out of reports.
+- Final run: native suite 9 of 9, independent multi-turn test 11 of 11.
+
 ## 0.5.6
 
 - Native eval suite for `claude plugin eval` in `plugins/sdops/evals/`: 9 first-turn cases with

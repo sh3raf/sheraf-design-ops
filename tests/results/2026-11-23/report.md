@@ -126,3 +126,16 @@ table approval and the list of defaults as extra questions, which the skill allo
 fix-trigger-no-slash shows Δ 0: without the plugin Claude also avoids writing, and the skill-fired
 check is an indicator only. Seen once in the eval sandbox: the skill could not read its own
 `references/` files (permission denied); it said so and invented nothing. About $4.60 in total.
+
+## Final run before submission (0.5.7)
+
+- Static: `tests/check.py` ok (now checks every Markdown link and every native case has a grader);
+  `claude plugin validate --strict` passes for the plugin and the marketplace.
+- Native suite (`claude plugin eval`, 3 runs per arm): 9 of 9 cases score 1.00 with the plugin; mean
+  Δ about +0.61. One rubric (ux-no-evidence, no-refund) was relaxed to accept any wording for "needs a
+  reference screen" after a correct reply failed it.
+- Independent multi-turn tester: 11 cases run, all PASS; 2 live-Figma cases not run. No person's name
+  and no `TBD` in any ID or file name in written files.
+- Known, minor, not blocking: ds-fixer asked two questions in one turn when the notes were vague
+  (fix-trigger-no-slash); while blocked on Figma, ds-ux-patterns once guessed a `WEB` platform code
+  "if the platform is web"; open-question lists can include low-value items.

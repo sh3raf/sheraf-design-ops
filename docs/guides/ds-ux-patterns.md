@@ -12,13 +12,16 @@ Then ask "check my Figma setup for sdops".
 Paste a link to the screens and say what you want:
 
 ```
-/sdops:ds-ux-patterns Document the home screen and the transfer flow of our banking app (iOS).
+/sdops:ds-ux-patterns Document the home screen and the booking flow of our app (iOS).
 Screens: <Figma link>. Write the pages in: <Figma link to the pattern file>.
 ```
 
+No Figma file for the catalogue? Say "write it as Markdown here" instead: you get one `.md` file per
+pattern and an `index.md`.
+
 ## 2. Answer a few questions
-Claude looks in your files first and only asks what it can't find, one question at a time, with its
-best guess. Press enter on the guess if it's right. It may ask:
+Claude looks in your files first and only asks what it can't find, one question per message, with its
+best guess. Reply "yes" if the guess is right. It may ask:
 
 | Question | Why |
 |---|---|
@@ -27,7 +30,7 @@ best guess. Press enter on the guess if it's right. It may ask:
 | Which flows and screens are in scope | So it documents only what you want |
 | Which component library | Examples are built from real library parts |
 | Owner and approver | Who keeps it current, who moves a pattern from proposed to active |
-| Seven yes/no questions (regulated? sensitive data? languages? platforms? brands? analytics? developers?) | Adds the extra sections your product needs, such as security or right-to-left |
+| Extra sections (security, languages and right-to-left, platforms, brands, analytics, code) | It switches them on from what the screens show and lists them for you to confirm; it asks only when the screens can't tell, such as which languages ship |
 
 **Don't know an answer?** Say "skip". It writes `TBD`, keeps the pattern as *proposed* and lists the
 question on the page and in the report, so someone can answer later. It never makes up a name or a
