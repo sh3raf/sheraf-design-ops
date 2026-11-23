@@ -11,18 +11,30 @@ design system, and keep a living catalogue of your product's UX patterns.
 | `ds-ux-patterns` | Asks about the product, finds page, flow and interaction patterns in its real screens, and writes a catalogue in Markdown or as Figma pages, with pattern IDs, a numbered template and a real example. Unknowns stay `TBD` with an open question; nothing is invented. |
 | `figma-safe-write` | The safety rules every skill loads before a Figma write: check the connection, save a named version, try one sample, screenshot, then do the rest. |
 
+## Set it up (about 5 minutes, once per computer)
+
+1. **Install the plugin.** In Claude Code:
+   ```
+   /plugin marketplace add sh3raf/sheraf-design-ops
+   /plugin install sdops@sdops
+   ```
+   On Claude Code 2.1.275 or later, one line does both:
+   `/plugin install sdops --marketplace sh3raf/sheraf-design-ops`.
+2. **Connect Figma.** Type `/mcp`. If **figma** isn't listed, run
+   `claude mcp add --transport http figma https://mcp.figma.com/mcp`, then `/mcp` again. Choose
+   **figma → Authenticate** and sign in with the Figma account that can open your files.
+3. **Optional, for big files:** install the [Figma Console MCP](https://github.com/southleft/figma-console-mcp),
+   open the file in the Figma desktop app and run **Plugins → Development → Figma Desktop Bridge**.
+4. **Check it.** Ask Claude "check my Figma setup for sdops". It tells you what's connected, which
+   account is signed in and whether you can edit the file.
+
+Full steps, limits and privacy notes: [setup guide](https://github.com/sh3raf/sheraf-design-ops/blob/main/plugins/sdops/skills/figma-safe-write/references/setup.md).
+
 ## Use it
-
-Install it in Claude Code:
-
-```
-/plugin install sdops --marketplace sh3raf/sheraf-design-ops
-```
 
 Type `/sdops:ds-fixer` with your review notes and a Figma link, or `/sdops:ds-ux-patterns` with the
 screens to document. You can also ask in your own words ("document the booking flow as a UX
-pattern", "fix these review notes on the dashboard"). To check your Figma connection first, ask
-"check my Figma setup for sdops". Every skill shows you a table and waits for your yes before it
+pattern", "fix these review notes on the dashboard"). Every skill shows you a table and waits for your yes before it
 writes anything, and it never publishes a library: that stays your click.
 
 Step-by-step guides: [ds-fixer](https://github.com/sh3raf/sheraf-design-ops/blob/main/docs/guides/ds-fixer.md),

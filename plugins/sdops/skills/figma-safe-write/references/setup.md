@@ -21,7 +21,8 @@ full workflow. Do this once per computer.
 
 ## 2. Figma Desktop Bridge (optional, recommended)
 
-1. Install the Figma Console MCP server (follow its README), then restart Claude Code.
+1. Install the [Figma Console MCP server](https://github.com/southleft/figma-console-mcp) (follow its
+   README), then restart Claude Code.
 2. Open the Figma **desktop app** (not the browser) and the file you want to work on.
 3. In the file: **Plugins → Development → Figma Desktop Bridge**. Keep the plugin window open.
 4. Repeat step 3 in every file the skill should touch (for example the product file and the library).

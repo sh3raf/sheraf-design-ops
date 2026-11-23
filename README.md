@@ -61,7 +61,10 @@ counts above, not a time figure).
 /plugin install sdops@sdops
 ```
 
-Open the Figma file, then:
+Connect Figma: type `/mcp`; if **figma** isn't listed, run
+`claude mcp add --transport http figma https://mcp.figma.com/mcp`, then choose **figma → Authenticate**
+(full steps in the [setup guide](plugins/sdops/skills/figma-safe-write/references/setup.md)). Ask
+"check my Figma setup for sdops" to confirm. Then open the Figma file and:
 
 ```
 /sdops:ds-fixer Here are the client's notes on the dashboard: R-01 the icons next to the metrics look off,
