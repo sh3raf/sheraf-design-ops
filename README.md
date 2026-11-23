@@ -117,14 +117,14 @@ From one real client review round (client details withheld):
 
 | Measure | Result |
 |---|---|
-| Review notes resolved | 5 fixes and 4 owner decisions |
-| Fixed at the source | 3 components (25 variants added or fixed) and 2 new tokens |
-| Instances updated | 216 buttons, 115 currency signs, 23 cards and every flag |
-| Status chips checked against their label | 887 (4 had the wrong colour) |
-| Deviations left | 3, each with an ID and a reason |
-| Safety | A broken variant was caught on the first of 23 cards and reverted with no content lost |
+| Review notes resolved | About 10, half fixed and half settled as owner decisions |
+| Fixed at the source | A few components (about 25 variants) and a couple of new tokens |
+| Instances updated | Over 300, from buttons to currency signs, cards and flags |
+| Status chips checked against their label | Nearly 900, catching a handful with the wrong colour |
+| Deviations left | A few, each with an ID and a reason |
+| Safety | A broken variant was caught on the first sample and reverted with no content lost |
 
-That is about 1,250 instance edits that would otherwise have been made by hand.
+That is over 1,000 instance edits that would otherwise have been made by hand.
 
 ## Guides
 
