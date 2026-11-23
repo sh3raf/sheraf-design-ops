@@ -1,144 +1,156 @@
-<img src="plugins/sdops/assets/icon.png" alt="" width="96">
+<div align="center">
+
+<img src="plugins/sdops/assets/icon.png" alt="sheraf design ops" width="96">
 
 # sheraf design ops
 
-**Turn design review notes into fixes that stay on your design system, and a report the client can read.**
+**Claude Code skills that turn Figma review notes into fixes that stay on your design system,
+and keep a living catalogue of your product's UX patterns.**
 
-Claude Code skills for designers working in Figma, packaged as the `sdops` plugin.
+[![License: MIT](https://img.shields.io/badge/license-MIT-2F6B4F.svg)](LICENSE)
+[![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-16181A.svg)](https://docs.anthropic.com/en/docs/claude-code/plugins)
+[![Figma](https://img.shields.io/badge/works%20with-Figma-16181A.svg)](https://www.figma.com)
+
+[Installation](#installation) · [Quick start](#quick-start) · [Guides](#guides) ·
+[Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
+
+</div>
+
+## Overview
+
+`sdops` is a Claude Code plugin for designers and design-system teams who work in Figma. A reviewer
+writes "the pills are the wrong colour" or "make the container grey", and for each note someone has to
+decide: can the library already do this, is it an off-system override, or is the library itself
+wrong? `sdops` makes that call, shows you the plan, fixes the right layer and records every exception.
 
 | Skill | What it does |
 |---|---|
-| `/sdops:ds-fixer` | Resolves a round of review notes on a Figma screen against your design-system libraries, fixes the libraries when they're wrong, and reports every deviation. |
-| `/sdops:ds-ux-patterns` | Interviews you about the product, detects page and flow patterns in its real screens, and keeps a living catalogue in Markdown or as Figma pages (neutral doc kit, pattern IDs, numbered template and real example). |
-| `/sdops:figma-safe-write` | The shared safety rules and Figma gotchas every sdops skill loads before writing to a file. |
+| [`/sdops:ds-fixer`](docs/guides/ds-fixer.md) | Resolves a round of review notes on a Figma screen against your design-system libraries, fixes the libraries when they are wrong, and reports every deviation with an ID. |
+| [`/sdops:ds-ux-patterns`](docs/guides/ds-ux-patterns.md) | Finds page, flow and interaction patterns in your real screens and keeps a living catalogue, in Markdown or as Figma pages, with pattern IDs, a numbered template and a real example. |
+| `/sdops:figma-safe-write` | The safety rules and Figma gotchas every skill loads before it writes to a file. |
 
-## Who it's for
+## Installation
 
-Designers and design-system teams who get review notes on a Figma screen ("the pills are the wrong
-colour", "make the container grey") and need to know, for each one: can the library already do this,
-is it an off-system override, or is the library itself wrong?
+**Requirements:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and a Figma account
+that can open your files. Edit access to the libraries lets `ds-fixer` fix them at the source.
 
-## What `/sdops:ds-fixer` does in detail
+1. **Install the plugin** from Claude Code:
 
-1. **Inspects first, read-only:** what the screen uses, what the libraries offer, what the original design did.
-2. **Classifies every note** and shows you the table before touching anything:
+   ```
+   /plugin marketplace add sh3raf/sheraf-design-ops
+   /plugin install sdops@sdops
+   ```
 
-   | Class | Means |
-   |---|---|
-   | Safe | A library option already does it |
-   | Deviation | Only possible as an override, logged with a D-id |
-   | Library bug or gap | Fixed in the tokens or components library when you can edit it |
-   | Owner decision | A judgement call: it recommends one answer and asks |
+2. **Connect Figma.** Type `/mcp`. If `figma` isn't listed, add the official Figma MCP server, then
+   choose **figma → Authenticate**:
 
-3. **Fixes safely:** saves a named version in every file first, dry-runs, applies to one sample,
-   screenshots, then does the rest.
-4. **Fixes at the source when it can:** adds the missing variant or token in the library, drafts the
-   publish message, and after you publish and update, switches every instance and removes the old overrides.
-5. **Reports:** what was fixed, library updates, decisions, deviations with IDs, and what is still pending.
+   ```
+   claude mcp add --transport http figma https://mcp.figma.com/mcp
+   ```
 
-See a full, anonymised run in [`examples/sample-review-round.md`](examples/sample-review-round.md).
+3. **Optional, for large files:** add the [Figma Console MCP](https://github.com/southleft/figma-console-mcp)
+   and run its **Desktop Bridge** plugin in the Figma desktop app for fast local reads and writes.
 
-## Field results
+4. **Check the setup.** Ask Claude *"check my Figma setup for sdops"*. It reports which connectors
+   work, which account is signed in and whether you can edit the file.
 
-Measured on one real client review round (client details withheld):
-
-| | |
-|---|---|
-| Review notes resolved | 5 fixes and 4 owner decisions |
-| Fixed at the source, in the libraries | 3 components (25 variants added or fixed) and 2 new tokens |
-| Instances updated in the product file | 216 buttons, 115 currency signs, 23 cards and every flag |
-| Status chips checked against their label | 887 (4 had the wrong colour) |
-| Deviations left at the end | 3, each with an ID and a reason |
-| Safety | A broken variant was caught on the first of 23 cards and reverted, with no content lost; a named version was saved before every write session |
-
-Estimate: about 1,250 instance edits that would otherwise have been done by hand (the sum of the
-counts above, not a time figure).
+The [setup guide](plugins/sdops/skills/figma-safe-write/references/setup.md) covers each step,
+the limits of each connector and how to switch accounts.
 
 ## Quick start
 
-```
-/plugin marketplace add sh3raf/sheraf-design-ops
-/plugin install sdops@sdops
-```
-
-Connect Figma: type `/mcp`; if **figma** isn't listed, run
-`claude mcp add --transport http figma https://mcp.figma.com/mcp`, then choose **figma → Authenticate**
-(full steps in the [setup guide](plugins/sdops/skills/figma-safe-write/references/setup.md)). Ask
-"check my Figma setup for sdops" to confirm. Then open the Figma file and:
+Resolve a round of review notes:
 
 ```
-/sdops:ds-fixer Here are the client's notes on the dashboard: R-01 the icons next to the metrics look off,
-R-02 the container should be grey and the cards white, R-03 status pills should match their text colour.
+/sdops:ds-fixer Here are the client's notes on the dashboard: R-01 the icons next to the metrics
+look off, R-02 the container should be grey and the cards white, R-03 status pills should match
+their text colour.
 ```
 
-Or start a pattern catalogue:
+Start a UX pattern catalogue:
 
 ```
-/sdops:ds-ux-patterns Document the UX patterns of our booking app (iOS and web). Reference screens are on
-the "Flows" page of this Figma file.
+/sdops:ds-ux-patterns Document the UX patterns of our booking app (iOS and web). Reference screens
+are on the "Flows" page of this Figma file.
 ```
+
+Every skill shows you a table and waits for your approval before it writes anything.
+
+## How `ds-fixer` works
+
+1. **Inspects, read-only:** what the screen uses, what the libraries offer, what the original design did.
+2. **Classifies every note** and shows you the plan:
+
+   | Class | Meaning |
+   |---|---|
+   | Safe | A library option already does it |
+   | Deviation | Only possible as an override; logged with an ID |
+   | Library bug or gap | Fixed in the tokens or components library, when you can edit it |
+   | Owner decision | A judgement call; it recommends one answer and asks |
+
+3. **Applies safely:** saves a named version in every file, dry-runs, changes one sample, checks a
+   screenshot, then does the rest.
+4. **Fixes at the source:** adds the missing variant or token to the library and drafts the publish
+   message. After you publish, it swaps every instance and removes the old overrides.
+5. **Reports** what was fixed, the library updates, the decisions, the remaining deviations and
+   what is still pending.
+
+See an anonymised end-to-end run in [`examples/sample-review-round.md`](examples/sample-review-round.md).
+
+## Results
+
+From one real client review round (client details withheld):
+
+| Measure | Result |
+|---|---|
+| Review notes resolved | 5 fixes and 4 owner decisions |
+| Fixed at the source | 3 components (25 variants added or fixed) and 2 new tokens |
+| Instances updated | 216 buttons, 115 currency signs, 23 cards and every flag |
+| Status chips checked against their label | 887 (4 had the wrong colour) |
+| Deviations left | 3, each with an ID and a reason |
+| Safety | A broken variant was caught on the first of 23 cards and reverted with no content lost |
+
+That is about 1,250 instance edits that would otherwise have been made by hand.
 
 ## Guides
 
-Step by step, with the questions each skill asks and what you get:
-[document your UX patterns](docs/guides/ds-ux-patterns.md) ·
-[fix review notes](docs/guides/ds-fixer.md).
+- [Fix review notes with `ds-fixer`](docs/guides/ds-fixer.md)
+- [Document your UX patterns with `ds-ux-patterns`](docs/guides/ds-ux-patterns.md)
+- [Connect Claude to Figma](plugins/sdops/skills/figma-safe-write/references/setup.md)
 
-## Needs
+## Safety and privacy
 
-Setup takes about 5 minutes: see the [setup guide](plugins/sdops/skills/figma-safe-write/references/setup.md). Then ask Claude "check my Figma setup for sdops".
+- **Never publishes a library.** Publishing stays your click; the skill drafts the message.
+- **Never writes without a saved version.** Every file gets a named version before its first change,
+  so any round can be undone from **File → Show version history**.
+- **Never changes a library without your approval** of the list of changes.
+- **Never resets all overrides** on an instance, which would wipe labels and swaps.
+- **Runs no code of its own.** The plugin is instructions only and sends nothing to any service
+  besides the Figma connection you authorise. The official Figma MCP is a cloud service; the Desktop
+  Bridge works locally. Client names are anonymised in anything meant to leave the team.
 
-- **Official Figma MCP** (`use_figma`), to search your libraries, screenshot any file and write.
-- **Figma Console MCP** with its Desktop Bridge plugin, for fast local reads and writes in open files.
-- **Edit access to the libraries**, if you want library bugs and gaps fixed at the source instead of
-  logged as deviations.
+Without a write connection, the skills still plan and report, and change nothing.
 
-Without any write connector, `ds-fixer` stops after the classification and delivers the plan and the
-report, changing nothing. The official MCP has a daily call limit and the bridge runs one script at a
-time; the skills plan around both.
+## How it differs from audit tools
 
-## Privacy
+Audit tools scan a whole design system for problems. `ds-fixer` starts from a reviewer's notes on one
+screen, decides which fixes are on-system, fixes the libraries when they are wrong and keeps a record
+of every deviation. Use an audit tool to find problems; use `ds-fixer` to resolve a review round.
 
-The official Figma MCP is a cloud service, so what it reads leaves your machine; the bridge works
-locally. Reports contain your client's work: the skills anonymise client names in anything meant to
-leave the team.
+## Roadmap
 
-## What it never does
+Planned skills, not built yet:
 
-- **Publish a library.** Publishing is always your click; it drafts the message.
-- **Write without a saved version.** Every file gets a named version before its first change.
-- **Change a library without your yes** on the list of changes.
-- **Reset all overrides** on an instance (that would wipe labels and swaps).
-
-## Differences from design-system audit tools
-
-Audit skills scan a whole design system for problems. `ds-fixer` starts from a reviewer's notes on one
-screen, decides which fixes are on-system, fixes the libraries when they're wrong, and leaves a record of
-every deviation. Use an audit tool to find problems; use `ds-fixer` to resolve a round of review notes.
-
-## Planned skills
-
-Not built yet; each will join `sdops` when it is.
-
-- **ds-hygiene:** "Run a naming, descriptions, text-style or unused-parts pass across this component
-  library." Fixes broken sets before renames, traces nested parts up to published components before
-  calling them unused, relinks detached copies instead of deprecating, and writes descriptions as
-  what it is / when to use / when not to use.
-- **ds-theme-match:** "Make this theme or mode match the reference colours across these screens."
-  Traces alias chains, fills missing component tokens and audits contrast, confirming text on images
-  in a screenshot.
-- **ds-branch-merge:** "Prepare, merge and check this Figma library branch." Accepts pending library
-  updates in the branch first (or the merge reverts them), writes the merge message, and diffs main
-  after the merge.
-- **ds-screen-build:** "Build these screens from the reference using only our library." Spec from the
-  reference, approved element mapping, build, measure (±2 px geometry, 100% text), overlay review.
-  Never inspects network traffic on signed-in pages; redacts captures before sharing.
+- **ds-hygiene:** naming, descriptions, text styles and unused parts across a component library.
+- **ds-theme-match:** make a theme or mode match reference colours, with contrast checks.
+- **ds-branch-merge:** prepare, merge and verify a Figma library branch.
+- **ds-screen-build:** build screens from a reference using only your library, then measure the result.
 
 ## Contributing
 
-Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Issues and pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for how to set up the
+checks and test a skill change. Please leave client names and file links out of issues.
 
-## Licence
+## License
 
-[MIT](LICENSE) © sheraf. If you use or adapt these skills, a mention of
-[sheraf](https://github.com/sh3raf) and a link back to this repo is appreciated.
+Released under the [MIT License](LICENSE). Copyright © 2026 sheraf.

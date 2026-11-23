@@ -53,6 +53,10 @@ The plugin contains only instructions; it runs no code, starts no server and sto
 and writes your Figma files only through the Figma connection you have already authorised, and writes
 Markdown files only in the folder you work in. It sends nothing to any other service.
 
-## Licence
+## Support
 
-MIT. Issues and questions: [github.com/sh3raf/sheraf-design-ops/issues](https://github.com/sh3raf/sheraf-design-ops/issues).
+Report a problem or ask a question in [GitHub Issues](https://github.com/sh3raf/sheraf-design-ops/issues).
+
+## License
+
+Released under the [MIT License](https://github.com/sh3raf/sheraf-design-ops/blob/main/LICENSE). Copyright © 2026 sheraf.
