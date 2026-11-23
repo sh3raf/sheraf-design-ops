@@ -13,6 +13,10 @@ design system, and keep a living catalogue of your product's UX patterns.
 
 ## Set it up (about 5 minutes, once per computer)
 
+**Let Claude do it:** paste *"Set up sdops for me by following
+https://github.com/sh3raf/sheraf-design-ops/blob/main/docs/agent-setup.md"* into Claude Code. It runs
+the steps below and asks you only to sign in to Figma. Or do them yourself:
+
 1. **Install the plugin.** In Claude Code:
    ```
    /plugin marketplace add sh3raf/sheraf-design-ops

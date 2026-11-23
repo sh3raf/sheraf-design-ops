@@ -34,6 +34,20 @@ wrong? `sdops` makes that call, shows you the plan, fixes the right layer and re
 **Requirements:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and a Figma account
 that can open your files. Edit access to the libraries lets `ds-fixer` fix them at the source.
 
+### Let Claude set it up
+
+Paste this into Claude Code:
+
+```
+Set up sdops for me by following https://github.com/sh3raf/sheraf-design-ops/blob/main/docs/agent-setup.md
+```
+
+Claude installs the plugin and adds the Figma connection, then asks you to sign in to Figma in your
+browser, the one step only you can do. The [instructions it follows](docs/agent-setup.md) are short
+and readable. It never asks for your Figma token.
+
+### Manual setup
+
 1. **Install the plugin** from Claude Code:
 
    ```
