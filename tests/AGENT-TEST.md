@@ -6,7 +6,7 @@ connection, no user memory and a folder copied from a fictional fixture. You pla
 
 ## Rules
 - Run sessions only through `tests/run_case.py`. Never run the skills yourself, never connect Figma,
-  never edit `plugins/`, `evals/` or `plugins/sdops/evals/fixtures/`.
+  never edit `plugins/`, `evals/` or `tests/plugin-evals/fixtures/`.
 - Play the designer from the fixture's `designer.md` only. Answer briefly, only what is asked. Never
   volunteer facts, never coach the session, never mention the expectations.
 - At most **4 turns per case**. Stop earlier when the session finishes, blocks or repeats itself.

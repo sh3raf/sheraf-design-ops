@@ -1,6 +1,6 @@
 ---
 name: ds-fixer
-description: Turns review notes on a Figma screen into fixes that stay on the design system, and reports what is still off-system. Classifies each note as safe, deviation, library bug or owner decision, fixes in the tokens or components library when you can edit it, and writes the client report. Use when a designer says things like "fix these review notes in Figma", "is this a deviation from the design system", "the client flagged R-02 and R-05", "realign this screen with our library" or "add the missing variant and roll it out". For a broad audit of a whole design system with no review notes, use an audit skill instead.
+description: "Turns review notes on a Figma screen into fixes that stay on the design system, and reports what is still off-system. Classifies each note as safe, deviation, library bug or owner decision, fixes in the tokens or components library when you can edit it, and writes the client report. Use when a designer says things like \"fix these review notes in Figma\", \"is this a deviation from the design system\", \"the client flagged R-02 and R-05\", \"realign this screen with our library\" or \"add the missing variant and roll it out\". For a broad audit of a whole design system with no review notes, use an audit skill instead."
 license: MIT
 ---
 

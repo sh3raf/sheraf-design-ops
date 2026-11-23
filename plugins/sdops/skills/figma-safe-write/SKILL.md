@@ -1,6 +1,6 @@
 ---
 name: figma-safe-write
-description: Safety rules and Plugin API gotchas for changing Figma files and libraries through the official Figma MCP (use_figma) or the Figma Console bridge. Covers saving a version before a write, naming the target file, dry runs and one sample first, small batches, reading back after a dropped or timed-out call, resuming a half-applied script, and the known traps with slots, cloned variants, nested instances, variable modes, text styles, imports and renders. Also runs the setup check ("check my Figma setup"): connectors, signed-in account, file access. Use before any script that writes to a Figma file, and whenever a write, binding, slot, import or render behaves unexpectedly. Other sdops skills load it before their first write.
+description: "Safety rules and Plugin API gotchas for changing Figma files and libraries through the official Figma MCP (use_figma) or the Figma Console bridge. Covers saving a version before a write, naming the target file, dry runs and one sample first, small batches, reading back after a dropped or timed-out call, resuming a half-applied script, and the known traps with slots, cloned variants, nested instances, variable modes, text styles, imports and renders. Also runs the setup check (\"check my Figma setup\"): connectors, signed-in account, file access. Use before any script that writes to a Figma file, and whenever a write, binding, slot, import or render behaves unexpectedly. Other sdops skills load it before their first write."
 license: MIT
 ---
 

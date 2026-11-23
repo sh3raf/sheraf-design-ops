@@ -25,8 +25,8 @@ work = case_dir / "work"
 turns = sorted(case_dir.glob("turn-*.jsonl"))
 if not turns:
     if a.reply: sys.exit("first turn takes no --reply")
-    shutil.copytree(root / "plugins/sdops/evals/fixtures" / case["fixture"], work,
-                    ignore=shutil.ignore_patterns("designer.md", ".keep"))
+    shutil.copytree(root / "tests/plugin-evals/fixtures" / case["fixture"], work,
+                    ignore=shutil.ignore_patterns("designer.md"))
     (case_dir / "empty-mcp.json").write_text('{"mcpServers":{}}')
     prompt, resume = case["prompt"], []
 else:

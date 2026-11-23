@@ -13,6 +13,12 @@ design system, and keep a living catalogue of your product's UX patterns.
 
 ## Use it
 
+Install it in Claude Code:
+
+```
+/plugin install sdops --marketplace sh3raf/sheraf-design-ops
+```
+
 Type `/sdops:ds-fixer` with your review notes and a Figma link, or `/sdops:ds-ux-patterns` with the
 screens to document. You can also ask in your own words ("document the booking flow as a UX
 pattern", "fix these review notes on the dashboard"). To check your Figma connection first, ask

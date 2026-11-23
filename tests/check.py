@@ -26,10 +26,10 @@ for ev in sorted((root / "evals").glob("*.json")):
     for case in data["cases"]:
         if not case.get("prompt") or not case.get("expect"):
             errors.append(f"{ev.name}: {case.get('id')} needs prompt and expect")
-        if case.get("needs") != "live-figma" and not (root / "plugins/sdops/evals/fixtures" / case.get("fixture", "?")).is_dir():
+        if case.get("needs") != "live-figma" and not (root / "tests/plugin-evals/fixtures" / case.get("fixture", "?")).is_dir():
             errors.append(f"{ev.name}: {case.get('id')} has no fixture folder")
 
-for case in sorted((root / "plugins/sdops/evals").glob("*/prompt.md")):
+for case in sorted((root / "tests/plugin-evals").glob("*/prompt.md")):
     if not list((case.parent / "graders").glob("*.md")):
         errors.append(f"{case.parent.name}: native eval case has no grader")
 
@@ -39,6 +39,13 @@ for doc in sorted(root.rglob("*.md")):
     for link in re.findall(r"\]\(([^)#:\s]+)\)", doc.read_text()):
         if "<" not in link and not (doc.parent / link).exists():  # <id>-<slug>.md is a template placeholder
             errors.append(f"{doc.relative_to(root)}: broken link {link}")
+
+# The directory takes only these file types from organizations it hasn't verified.
+allowed = {".md", ".txt", ".json", ".yaml", ".yml", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico"}
+for entry in market["plugins"]:
+    for f in (root / entry["source"]).rglob("*"):
+        if f.is_file() and (f.suffix.lower() not in allowed or f.read_bytes()[:2] == b"#!"):
+            errors.append(f"{f.relative_to(root)}: the plugin directory rejects this file type")
 
 changelog = (root / "CHANGELOG.md").read_text()
 for entry in market["plugins"]:

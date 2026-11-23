@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.8
+
+- Directory fix: the plugin folder now holds only file types the directory accepts. The native eval
+  suite (with its `setup.sh` scripts and fixtures) moved to `tests/plugin-evals/` and runs through
+  `tests/plugin-eval.sh` on a temp copy; the SVG icon source stays in `docs/brand/`.
+- `tests/check.py` fails on any file in the plugin folder the directory would reject.
+- Skill descriptions are quoted, so a `:` inside them can't be misread.
+
 ## 0.5.7
 
 - Checks: every Markdown link in the repo, every native eval case has a grader; the pre-push hook
