@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.9
+
+- Privacy policy (`PRIVACY.md`), linked from `plugin.json` (`privacyPolicyUrl`) and the plugin README.
+- Setup by Claude: `docs/agent-setup.md` and a one-line prompt in both READMEs.
+- README: standard open-source layout; field results rounded.
+
 ## 0.5.8
 
 - Directory fix: the plugin folder now holds only file types the directory accepts. The native eval

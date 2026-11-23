@@ -55,7 +55,7 @@ connection.
 
 The plugin contains only instructions; it runs no code, starts no server and stores nothing. It reads
 and writes your Figma files only through the Figma connection you have already authorised, and writes
-Markdown files only in the folder you work in. It sends nothing to any other service.
+Markdown files only in the folder you work in. It sends nothing to any other service. Full [privacy policy](https://github.com/sh3raf/sheraf-design-ops/blob/main/PRIVACY.md).
 
 ## Support
 

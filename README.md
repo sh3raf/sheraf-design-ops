@@ -141,7 +141,8 @@ That is over 1,000 instance edits that would otherwise have been made by hand.
 - **Never resets all overrides** on an instance, which would wipe labels and swaps.
 - **Runs no code of its own.** The plugin is instructions only and sends nothing to any service
   besides the Figma connection you authorise. The official Figma MCP is a cloud service; the Desktop
-  Bridge works locally. Client names are anonymised in anything meant to leave the team.
+  Bridge works locally. Client names are anonymised in anything meant to leave the team. See the
+  [privacy policy](PRIVACY.md).
 
 Without a write connection, the skills still plan and report, and change nothing.
 
